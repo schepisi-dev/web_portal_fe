@@ -5,54 +5,32 @@ $json = file_get_contents($url.'/web/web_portal_be/api/organization/?token='.$to
 $data = json_decode($json,true);
 $URL = $_POST['url'];
 $totalCount = 0;
-// change the variable name to devices which is clearer.
-$devices = $data['message'];
-foreach ($devices as $device)
+// change the variable name to org which is clearer.
+$org = $data['message'];
+foreach ($org as $organization)
 {
 	if ($URL=='/schepisi/organization.php'){
 		echo '<tr class="tr-shadow">
-		    <td>
-		        <label class="au-checkbox">
-		            <input type="checkbox">
-		            <span class="au-chec ark"></span>
-		        </label>
-		    </td>
-		    <td id="orgName">'.$device['organization_name'].'</td>
-		    <td>
-		        <span class="block-email"></span>
-		    </td>
-		    <td class="desc"></td>
-		    <td></td>
-		    <td>
-		        <span class="status--process"></span>
-		    </td>
-		    <td></td>
-		    <td>
-		        <div class="table-data-feature">
-		            <button class="item" data-toggle="tooltip" data-placement="top" title="Send">
-		                <i class="zmdi zmdi-mail-send"></i>
-		            </button>
-		            <button class="item" data-toggle="tooltip" data-placement="top" title="Edit">
-		                <i class="zmdi zmdi-edit"></i>
-		            </button>
-		            <button class="item" data-toggle="tooltip" data-placement="top" title="Delete">
-		                <i class="zmdi zmdi-delete"></i>
-		            </button>
-		        </div>
-		    </td>
+		 
+		    <td id="orgName">'.$organization['organization_name'].'</td>
+		    <td id="createdDate">'.$organization['organization_created_on'].'</td>
+		    <td id="action">
+	            <div class="table-data__info table-data-feature">
+	                <button type="button" class="btn btn-primary btn-block" id="editOrganization">Edit</button>
+	            </div>
+            </td>
 		</tr>';
 
 	}
 	else if($URL == '/schepisi/users.php' || $URL == '/schepisi/upload.php'){
-		echo '<option value='.$device['organization_id'].' id='.$device['organization_id'].'>'.$device['organization_name'].'</option>';
+		echo '<option value='.$organization['organization_id'].' id='.$organization['organization_id'].'>'.$organization['organization_name'].'</option>';
 	}
 	else{
-		if($device['organization_name']){
+		if($organization['organization_name']){
 			$totalCount = $totalCount+1;
 
 		}
 	}
 
 }
-echo $totalCount;
 ?>

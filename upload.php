@@ -32,13 +32,7 @@ include('sidebar.php');
                                                                 <div class="col-md-12">
                                                                     
                                                                     <div class="col-md-12 table-data__tool table-data__tool-left">
-                                                                        <select class="form-control col-md-3" id="paginator" name="paginator">
-                                                                            <option id="10" value="10">Show 10 rows</option>
-                                                                            <option id="20" value="20">Show 20 rows</option>
-                                                                            <option id="50" value="50">Show 50 rows</option>
-                                                                            <option id="100" value="100">Show 100 rows</option>
-                                                                            <option id="0" value="0">Show all rows</option>
-                                                                        </select>
+                                                                        
                                                                         <select class="form-control col-md-3" id="drpdownOrg1" name="drpdownOrg">
                                                                             <option id="0" value="0">Select Organization</option>
                                                                         </select>
@@ -46,24 +40,33 @@ include('sidebar.php');
                                                                         <button id="uploadChargers" class="btn btn-primary btn-sm mb-3 ">Upload </button>
                                                                     </div>
                                                                     <!-- DATA TABLE-->
-                                                                    <div class="table-responsive m-b-40">
-                                                                        <table class="table table-borderless table-data3">
+                                                                    <div class="table-responsive m-b-40"> 
+                                                                        <table id="display" class="display chargersTable">
                                                                             <thead>
-                                                                                <tr>
-                                                                                    <th>ACCOUNT NUMBER</th>
-                                                                                    <th>BILL ISSUE DATE</th>
-                                                                                    <th>BILL NUMBER</th>
-                                                                                    <th>SERVICE NUMBER</th>
-                                                                                    <th>OCC DESCRIPTION</th>
-                                                                                </tr>
+                                                                            <tr>
+                                                                                <th>ACCOUNT NUMBER</th>
+                                                                                <th>BILL ISSUE DATE</th>
+                                                                                <th>BILL NUMBER</th>
+                                                                                <th>SERVICE NUMBER</th>
+                                                                                <th>OCC DESCRIPTION</th>
+                                                                            </tr>
                                                                             </thead>
                                                                             <tbody id="chargers_and_credit-table">
-                                                                               
+                                                                                           
                                                                             </tbody>
+                                                                            <tfoot>
+                                                                            <tr>
+                                                                                <th>ACCOUNT NUMBER</th>
+                                                                                <th>BILL ISSUE DATE</th>
+                                                                                <th>BILL NUMBER</th>
+                                                                                <th>SERVICE NUMBER</th>
+                                                                                <th>OCC DESCRIPTION</th>
+                                                                            </tr>
+                                                                            </tfoot>
                                                                         </table>
-                                                                        <div id="pagination"></div>    
-                                                                        <input type="hidden" id="totalPages" value="<?php echo $totalPages; ?>">
                                                                     </div>
+
+
                                                                     <!-- END DATA TABLE-->
                                                                 </div>
                                                             </div>
@@ -74,13 +77,6 @@ include('sidebar.php');
                                                             <div class="row m-t-30">
                                                                 <div class="col-md-12">
                                                                     <div class="col-md-12 table-data__tool table-data__tool-left">
-                                                                        <select class="form-control col-md-3" id="paginator1" name="paginator">
-                                                                            <option id="10" value="10">Show 10 rows</option>
-                                                                            <option id="20" value="20">Show 20 rows</option>
-                                                                            <option id="50" value="50">Show 50 rows</option>
-                                                                            <option id="100" value="100">Show 100 rows</option>
-                                                                            <option id="0" value="0">Show all rows</option>
-                                                                        </select>
 
                                                                         <select class="form-control col-md-3" id="drpdownOrg2" name="drpdownOrg">
                                                                             <option id="0" value="0">Select Organization</option>
@@ -92,19 +88,29 @@ include('sidebar.php');
                                                                     </div>
                                                                     <!-- DATA TABLE-->
                                                                     <div class="table-responsive m-b-40">
-                                                                        <table class="table table-borderless table-data3">
+
+                                                                        <table id="display" class="display usageTable">
                                                                             <thead>
-                                                                                <tr>
-                                                                                    <th>ACCOUNT NUMBER</th>
-                                                                                    <th>SERVICE NUMBER</th>
-                                                                                    <th>CALLED NUMBER</th>
-                                                                                    <th>CALL & USAGE TYPE</th>
-                                                                                    <th>DURATION</th>
-                                                                                </tr>
+                                                                            <tr>
+                                                                                <th>ACCOUNT NUMBER</th>
+                                                                                <th>SERVICE NUMBER</th>
+                                                                                <th>CALLED NUMBER</th>
+                                                                                <th>CALL & USAGE TYPE</th>
+                                                                                <th>DURATION</th>
+                                                                            </tr>
                                                                             </thead>
                                                                             <tbody id="call-and-usage-table">
-                                                                               
+                                                                                           
                                                                             </tbody>
+                                                                            <tfoot>
+                                                                            <tr>
+                                                                                <th>ACCOUNT NUMBER</th>
+                                                                                <th>SERVICE NUMBER</th>
+                                                                                <th>CALLED NUMBER</th>
+                                                                                <th>CALL & USAGE TYPE</th>
+                                                                                <th>DURATION</th>
+                                                                            </tr>
+                                                                            </tfoot>
                                                                         </table>
                                                                     </div>
                                                                     <!-- END DATA TABLE-->
@@ -118,13 +124,7 @@ include('sidebar.php');
                                                                 <div class="col-md-12">
                                                                     
                                                                     <div class="col-md-12 table-data__tool table-data__tool-left">
-                                                                        <select class="form-control col-md-3" id="paginator2" name="paginator">
-                                                                            <option id="10" value="10">Show 10 rows</option>
-                                                                            <option id="20" value="20">Show 20 rows</option>
-                                                                            <option id="50" value="50">Show 50 rows</option>
-                                                                            <option id="100" value="100">Show 100 rows</option>
-                                                                            <option id="0" value="0">Show all rows</option>
-                                                                        </select>
+                                                                        
                                                                         <select class="form-control col-md-3" id="drpdownOrg3" name="drpdownOrg">
                                                                             <option id="0" value="0">Select Organization</option>
                                                                         </select>
@@ -133,20 +133,30 @@ include('sidebar.php');
                                                                     </div>
                                                                     <!-- DATA TABLE-->
                                                                     <div class="table-responsive m-b-40">
-                                                                        <table class="table table-borderless table-data3">
+                                                                         <table id="display" class="display serviceTable">
                                                                             <thead>
-                                                                                <tr>
-                                                                                    <th>ACCOUNT NUMBER</th>
-                                                                                    <th>SERVICE NUMBER</th>
-                                                                                    <th>SERVICE OWNER</th>
-                                                                                    <th>CHARGE TYPE DESCRIPTION</th>
-                                                                                    <th>SERVICE TYPE</th>
-                                                                                </tr>
+                                                                            <tr>
+                                                                               <th>ACCOUNT NUMBER</th>
+                                                                                <th>SERVICE NUMBER</th>
+                                                                                <th>SERVICE OWNER</th>
+                                                                                <th>CHARGE TYPE DESCRIPTION</th>
+                                                                                <th>SERVICE TYPE</th>
+                                                                            </tr>
                                                                             </thead>
                                                                             <tbody id="service-and-equipment-table">
-                                                                               
+                                                                                           
                                                                             </tbody>
+                                                                            <tfoot>
+                                                                            <tr>
+                                                                               <th>ACCOUNT NUMBER</th>
+                                                                                <th>SERVICE NUMBER</th>
+                                                                                <th>SERVICE OWNER</th>
+                                                                                <th>CHARGE TYPE DESCRIPTION</th>
+                                                                                <th>SERVICE TYPE</th>
+                                                                            </tr>
+                                                                            </tfoot>
                                                                         </table>
+
                                                                     </div>
                                                                     <!-- END DATA TABLE-->
                                                                 </div>

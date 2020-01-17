@@ -2,8 +2,7 @@
 $url = 'http://10.128.187.11';
 $token = $_POST['token'];
 $type = $_POST['type'];
-$limit = $_POST['limit'];
-$json = file_get_contents($url.'/web/web_portal_be/api/transaction?offset=0&limit='.$limit.'&token='.$token.'&type='.$type);
+$json = file_get_contents($url.'/web/web_portal_be/api/transaction?token='.$token.'&type='.$type);
 //$json = file_get_contents($url.'/web/web_portal_be/api/transaction?token='.$token.'&type='.$type); 
 $data = json_decode($json,true);
 $devices = $data['message'];
@@ -36,7 +35,7 @@ foreach ($devices as $device)
 	}
 	else if($type == 'all'){
 		echo '<tr>';
-		if($device['chargers_and_credit_account_number'] == ''){
+		/*if($device['chargers_and_credit_account_number'] == ''){
 			$device['chargers_and_credit_account_number'] = $device['service_and_equipment_account_number'];
 		}
 		if($device['chargers_and_credit_service_number']==''){
@@ -53,14 +52,12 @@ foreach ($devices as $device)
 		}
 		if($device['service_and_equipment_charge_type_description']==''){
 			$device['service_and_equipment_charge_type_description'] = '--';
-		}
+		}*/
 
-		echo '<td>'.$device['chargers_and_credit_account_number'].'</td>';
-		echo '<td>'.$device['chargers_and_credit_service_number'].'</td>';
-		echo '<td>'.$device['service_and_equipment_service_owner'].'</td>';
-		echo '<td>'.$device['call_and_usage_type'].'</td>';
-		echo '<td>'.$device['chargers_and_credit_occ_description'].'</td>';
-		echo '<td>'.$device['service_and_equipment_charge_type_description'].'</td>';
+		echo '<td>'.$device['transaction_type'].'</td>';
+		echo '<td>'.$device['transaction_account_number'].'</td>';
+		echo '<td>'.$device['transaction_service_number'].'</td>';
+		echo '<td>'.$device['transaction_date_synced'].'</td>';
 		echo '</tr>';
 	}
 }

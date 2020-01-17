@@ -18,14 +18,6 @@ include('sidebar.php');
                                         <button type="button" class="btn btn-secondary mb-1 au-btn-icon au-btn au-btn--green au-btn--small" data-toggle="modal" data-target="#userModal">
                                            <i class="zmdi zmdi-plus"></i>add a cost centre
                                         </button>
-                                        <div class="rs-select2--dark rs-select2--sm rs-select2--dark2">
-                                            <select class="js-select2" name="type">
-                                                <option selected="selected">Export as</option>
-                                                <option value="">xls</option>
-                                                <option value="">pdf</option>
-                                            </select>
-                                            <div class="dropDownSelect2"></div>
-                                        </div>
                                     </div>
                                 </div>
                                 </div>
@@ -39,9 +31,12 @@ include('sidebar.php');
                             </div>
                         </div>
                         <div class="row">
-                                <div class="col-lg-2 au-card">
+                            <div class="col">
+                                <div class="col-lg-12 au-card">
                                     <ul id="cost-centre-data" class="navbar-mobile__list list-unstyled table-data__info"></ul>
                                 </div>
+                            </div>
+                                
                                 <div class="col-lg-10 au-card"> 
                                     <div id="lineGraphContainer"></div>
                                 </div>

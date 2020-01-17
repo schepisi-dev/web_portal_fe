@@ -13,47 +13,51 @@ include('sidebar.php');
                                 <!-- DATA TABLE -->
                                 
                                 <div class="table-data__tool">
-                                    <div class="table-data__tool-left">
-                                        <span class="title-5 m-b-35">Organizations</span>
-                                      
-                                    </div>
                                     <div class="table-data__tool-right orgButton">
 
                                         <button type="button" class="btn btn-secondary mb-1 au-btn-icon au-btn au-btn--green au-btn--small" data-toggle="modal" data-target="#staticModal">
                                            <i class="zmdi zmdi-plus"></i>create an organization
                                         </button>
-                                        <div class="rs-select2--dark rs-select2--sm rs-select2--dark2">
-                                            <select class="js-select2" name="type">
-                                                <option selected="selected">Export as</option>
-                                                <option value="">xls</option>
-                                                <option value="">pdf</option>
-                                            </select>
-                                            <div class="dropDownSelect2"></div>
-                                        </div>
                                     </div>
                                 </div>
-                                <div class="table-responsive table-responsive-data2">
-                                    <table class="table table-data2">
-                                        <thead>
-                                            <tr>
-                                                <th>
-                                                    <label class="au-checkbox">
-                                                        <input type="checkbox">
-                                                        <span class="au-checkmark"></span>
-                                                    </label>
-                                                </th>
-                                                <th>organization name</th>
-                                                
-                                            </tr>
-                                        </thead>
-                                        <tbody id="data-table">
-        
-                                            <tr class="spacer"></tr>                                            
-                                            <tr class="spacer"></tr>                                            
-                                            
-                                        </tbody>
-                                    </table>
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <!-- USER DATA-->
+                                        <div class="col-lg-12">
+                                            <div class="au-card m-b-30">
+                                                <div class="au-card-inner">
+                                                   <h2 class="title-1 m-b-25">Organization</h2>
+                                                    <div class="table-responsive m-b-40 tableFixHead organizationTable">
+                                                        <table id="display"  class="display orgTable">
+                                                            <thead>
+                                                            <tr>
+                                                                <th>ORGANIZATION NAME</th>
+                                                                <th>CREATED DATE</th>
+                                                                <th>ACTION</th>
+                                                            </tr>
+                                                            </thead>
+                                                            <tbody id="data-table">
+                                                                           
+                                                            </tbody>
+                                                            <tfoot>
+                                                            <tr>
+                                                                <th>ORGANIZATION NAME</th>
+                                                                <th>CREATED DATE</th>
+                                                                <th>ACTION</th>
+                                                            </tr>
+                                                            </tfoot>
+                                                      </table>
+
+                                                    </div>
+                                                    <div class="organizationInfo"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- END USER DATA-->
+                                    </div>
+
                                 </div>
+
                                 <!-- END DATA TABLE -->
                             </div>
                         </div>

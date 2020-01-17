@@ -9,23 +9,11 @@ include('sidebar.php');
                             <div class="col-md-12">
                                 <div class="card-body">
                                     <div class="table-data__tool">
-                                    <div class="table-data__tool-left">
-                                        <span class="title-5 m-b-35">User Management</span>
-                                      
-                                    </div>
                                     <div class="table-data__tool-right  userButton">
 
                                         <button type="button" class="btn btn-secondary mb-1 au-btn-icon au-btn au-btn--green au-btn--small" data-toggle="modal" data-target="#userModal">
                                            <i class="zmdi zmdi-plus"></i>add a user
                                         </button>
-                                        <div class="rs-select2--dark rs-select2--sm rs-select2--dark2">
-                                            <select class="js-select2" name="type">
-                                                <option selected="selected">Export as</option>
-                                                <option value="">xls</option>
-                                                <option value="">pdf</option>
-                                            </select>
-                                            <div class="dropDownSelect2"></div>
-                                        </div>
                                     </div>
                                 </div>
                                 </div>
@@ -34,24 +22,42 @@ include('sidebar.php');
                         <div class="row">
                             <div class="col-lg-12">
                                 <!-- USER DATA-->
-                                <div class="user-data m-b-30">
-                                    
-                                    <div class="table-responsive table-data">
-                                        
-                                        <table class="table">
-                                            <thead>
-                                                <tr>
-                                                    <td>full name</td>
-                                                    <td>email address</td>
-                                                    <td>organization</td>
-                                                    <td>username</td>
-                                                    <td>user role</td>
-                                                </tr>
-                                            </thead>
-                                            <tbody id="userData">
+                                <div class="col-lg-12">
+                                    <div class="au-card m-b-30">
+                                        <div class="au-card-inner">
+                                           <h2 class="title-1 m-b-25">User Management</h2>
+                                            <div class="table-responsive m-b-40 tableFixHead userTable">
+                                                <table id="display" class="display usersTable">
+                                                    <thead>
+                                                    <tr>
+                                                        <th>FULL NAME</th>
+                                                        <th>EMAIL ADDRESS</th>
+                                                        <th>ORGANIZATION</th>
+                                                        <th>USERNAME</th>
+                                                        <th>ROLE</th>
+                                                        <th>DATE ADDED</th>
+                                                        <th>ACTION</th>
+                                                    </tr>
+                                                    </thead>
+                                                    <tbody id="userData">
+                                                                   
+                                                    </tbody>
+                                                    <tfoot>
+                                                    <tr>
+                                                        <th>FULL NAME</th>
+                                                        <th>EMAIL ADDRESS</th>
+                                                        <th>ORGANIZATION</th>
+                                                        <th>USERNAME</th>
+                                                        <th>ROLE</th>
+                                                        <th>DATE ADDED</th>
+                                                        <th>ACTION</th>
+                                                    </tr>
+                                                    </tfoot>
+                                              </table>
                                                 
-                                            </tbody>
-                                        </table>
+                                            </div>
+                                            <div class="userInfo"></div>
+                                        </div>
                                     </div>
                                 </div>
                                 <!-- END USER DATA-->
@@ -119,10 +125,10 @@ include('sidebar.php');
 
                                                  <div class="row form-group">
                                                     <div class="col col-md-6">
-                                                        <input type="text" placeholder="Input Password" class="form-control" id="password" name="password">
+                                                        <input type="password" placeholder="Input Password" class="form-control" id="password" name="password">
                                                     </div>
                                                     <div class="col col-md-6">
-                                                        <input type="text" placeholder="Confirm Password" class="form-control" id="confirmpass" name="confirmpass">
+                                                        <input type="password" placeholder="Confirm Password" class="form-control" id="confirmpass" name="confirmpass">
                                                     </div>
                                                 </div>
                                             </form>

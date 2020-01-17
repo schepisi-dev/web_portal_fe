@@ -31,121 +31,11 @@
     <link href="https://cdn.anychart.com/releases/8.7.0/css/anychart-ui.min.css?hcode=a0c21fc77e1449cc86299c5faa067dc4" rel="style" media="all">
 
     <!-- data tables scrips and styles -->
-  <link href="http://cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css">
-  <link href="assets/css/dataTables.bootstrap4.css">
+    <link href="http://cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css" rel="stylesheet" media="all">
+    <link href="assets/css/dataTables.bootstrap4.css" rel="stylesheet" media="all">
+
+    <link href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css" rel="stylesheet" media="all">
     <!--end data tables -->
-    <style type="text/css">
-        #pieChartContainer, #barChartContainer{
-            width: 100%;
-            height: 400px;
-            margin: 0;
-            padding: 0;
-        }
-        div#lineGraphContainer {
-            height: 450px;
-        }
-        tbody#allTransaction, #example1 thead, #example1 tfoot {
-            color: #000;
-        }
-        table#example1 {
-            font-size: 12px;
-            margin-bottom: 15px;
-        }
-        /*div.dataTables_wrapper div.dataTables_info {
-            padding-top: 0.85em;
-            white-space: nowrap;
-        }
-        div.dataTables_wrapper div.dataTables_paginate {
-            margin: 0;
-            white-space: nowrap;
-            text-align: right;
-        }
-        div.dataTables_wrapper div.dataTables_paginate ul.pagination {
-            margin: 2px 0;
-            white-space: nowrap;
-            justify-content: flex-end;
-        }
-        .page-item.active .page-link {
-            z-index: 1;
-            color: #fff;
-            background-color: #007bff;
-            border-color: #007bff;
-        }
-        .page-link {
-            position: relative;
-            display: block;
-            padding: .5rem .75rem;
-            margin-left: -1px;
-            line-height: 1.25;
-            color: #007bff;
-            background-color: #fff;
-            border: 1px solid #dee2e6;
-        }*/
-
-        div#example1_paginate {
-    border: 1px solid #999;
-    float: right;
-    border-radius: 5px;
-    font-size: 0.7em;
- }
-
-.dataTables_info {
-    /* width: 30%; */
-    color: #000;
-    font-size: 0.9em;
-    float: left;
-}
-.paginate_button{
-    padding: 10px;
-}
-a.paginate_button.current {
-    border-color: #007bff;
-    background: #007bff;
-    color: #fff;
-    padding: 10px;
-    white-space: nowrap;
-}
-.paginate_button:hover{
-    cursor: pointer;
-}
-
-.caret {
-  cursor: pointer;
-  -webkit-user-select: none; /* Safari 3.1+ */
-  -moz-user-select: none; /* Firefox 2+ */
-  -ms-user-select: none; /* IE 10+ */
-  user-select: none;
-}
-
-.caret::before {
-  content: "\25B6";
-  color: black;
-  display: inline-block;
-  margin-right: 6px;
-}
-
-.caret-down::before {
-  -ms-transform: rotate(90deg); /* IE 9 */
-  -webkit-transform: rotate(90deg); /* Safari */'
-  transform: rotate(90deg);  
-}
-
-.nested {
-  display: none;
-}
-
-.active {
-  display: block;
-}
-
-ul#cost-centre-data {
-    font-size: 0.8em;
-}
-
-.overview-wrap > span {
-    display: none;
-}
-</style>
 </head>
 
 <body>
@@ -250,22 +140,28 @@ ul#cost-centre-data {
                                                     <span class="email">Mobile Number</span>
                                                 </div>
                                             </div>
+
                                             <div class="account-dropdown__body">
                                                 <div class="account-dropdown__item">
-                                                    <a href="#">
+                                                    <a href="#" data-toggle="modal" data-target="#accountsModal">
                                                         <i class="zmdi zmdi-account"></i>Account</a>
                                                 </div>
-                                                <div class="account-dropdown__item">
+                                                <!--<div class="account-dropdown__item">
                                                     <a href="#">
                                                         <i class="zmdi zmdi-settings"></i>Setting</a>
                                                 </div>
+                                                <div class="account-dropdown__item">
+                                                    <a href="#">
+                                                        <i class="zmdi zmdi-money-box"></i>Billing</a>
+                                                </div>-->
                                             </div>
+
                                             <div class="account-dropdown__footer">
                                                 <a id="logout">
                                                     <i class="zmdi zmdi-power"></i>Logout</a>
                                             </div>
 
-        <div id="timer"></div>
+                                            <div id="timer"></div>
                                         </div>
                                     </div>
                                 </div>

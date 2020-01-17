@@ -7,33 +7,33 @@
             </div>
             <div class="menu-sidebar__content js-scrollbar1">
                 <nav class="navbar-sidebar">
-                    <ul class="list-unstyled navbar__list">
+                    <ul class="list-unstyled navbar__list" id="sidebar">
                         <li  id="dashboard" >
                             <a href="dashboard.php">
-                                <i class="fas fa-tachometer-alt"></i>Dashboard</a>
+                                <i class="fa fa-tachometer-alt"></i>Dashboard</a>
                         </li>
                         <li id="upload">
                             <a href="upload.php">
-                                <i class="far fa-check-square"></i>File Upload</a>
+                                <i class="fa fa-bar-chart-o"></i>Transactions</a>
                         </li>
 
-                        <li id="cost">
+                        <li id="history">
                             <a href="history.php">
-                                <i class="fas fa-copy"></i>File Upload History</a>
+                                <i class="fa fa-copy"></i>File Upload History</a>
                         </li>
 
                         <li id="org">
                             <a href="organization.php">
-                                <i class="fa fa-users"></i>Organization</a>
+                                <i class="fa fa-user"></i>Organization</a>
                         </li>
                         <li id="user">
                             <a href="users.php">
-                                <i class="fa fa-users"></i>User Management</a>
+                                <i class="fa fa-unlock"></i>User Management</a>
                         </li>
 
                         <li id="cost">
                             <a href="cost.php">
-                                <i class="fas fa-copy"></i>Cost Centre</a>
+                                <i class="fa fa-file"></i>Cost Centre</a>
                         </li>
                         
                     </ul>
