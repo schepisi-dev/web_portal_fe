@@ -1,10 +1,10 @@
 <?php
-$url = 'http://10.128.187.11';
+include 'config.php';
 $token = $_POST['token'];
 if(!isset($_POST['click'])){
 	$_POST['click'] = '';
 }
-$json = file_get_contents($url.'/web/web_portal_be/reports/accounts/month?token='.$token); 
+$json = file_get_contents($url.'/reports/accounts/month?token='.$token); 
 $data = json_decode($json,true);
 $callAndUsageType = $data['call_and_usage'];
 $chargersAndCreditType = $data['chargers_and_credit'];

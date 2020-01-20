@@ -146,6 +146,66 @@ include('sidebar.php');
                             </div>
                         </div>
                     <!-- end modal static -->
+
+                    <!--edit user -->
+
+ <!-- modal static -->
+                        <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="staticModalLabel" aria-hidden="true"
+                         data-backdrop="static">
+                            <div class="modal-dialog modal-lg" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="staticModalLabel">Update User Details</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <p>
+                                            <form action="" method="post" class="form-horizontal" id='editForm'>
+                                                <div id="userformdiv">
+                                                    
+                                                </div>
+                                                <div class="row form-group">
+                                                    <div class="col col-md-6">
+                                                        <div class="form-control" id="txtRole"></div>
+                                                    </div>
+                                                    <div class="col col-md-6">
+                                                         <div class="form-control" id="txtOrg"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="row form-group">
+                                                    <div class="col col-md-6">
+                                                        <input type="text" placeholder="First Name" class="form-control" id="firstname" name="firstname">
+                                                    </div>
+                                                    <div class="col col-md-6">
+                                                        <input type="text" placeholder="Last Name" class="form-control" id="lastname" name="lastname">
+                                                    </div>
+                                                </div>
+                                                <div class="row form-group">
+                                                    <div class="col col-md-6">
+                                                        <input type="text" placeholder="Username" class="form-control"  id="username" name="username">
+                                                    </div>
+                                                    <div class="col col-md-6">
+                                                        <input type="text" placeholder="Email Address" class="form-control" id="email" name="email">
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </p>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="submit" class="btn btn-primary btn-sm" id="updateUser">
+                                            <i class="fa fa-dot-circle-o"></i> Submit
+                                        </button>
+                                        <button type="reset" class="btn btn-danger btn-sm">
+                                            <i class="fa fa-ban"></i> Clear
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    <!-- end modal static -->
+                    <!-- edit user -->
             </div>
             <!-- END MAIN CONTENT-->
 <?php

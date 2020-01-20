@@ -1,8 +1,8 @@
 <?php
-$url = 'http://10.128.187.11';
+include 'config.php';
 $token = $_POST['token'];
 $type = $_POST['type'];
-$json = file_get_contents($url.'/web/web_portal_be/api/transaction?token='.$token.'&type='.$type);
+$json = file_get_contents($url.'/api/transaction?token='.$token.'&type='.$type);
 //$json = file_get_contents($url.'/web/web_portal_be/api/transaction?token='.$token.'&type='.$type); 
 $data = json_decode($json,true);
 $devices = $data['message'];

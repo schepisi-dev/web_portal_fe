@@ -1,7 +1,7 @@
 <?php
-$url = 'http://10.128.187.11';
+include 'config.php';
 $token = $_POST['token'];
-$json = file_get_contents($url.'/web/web_portal_be/api/user?offset=0&limit=0&token='.$token); 
+$json = file_get_contents($url.'/api/user?offset=0&limit=0&token='.$token); 
 $data = json_decode($json,true);
 $URL = $_POST['url'];
 
@@ -74,7 +74,7 @@ foreach ($users as $user)
                 </td>
                 <td id="action">
                     <div class="table-data__info table-data-feature">
-                        <button type="button" class="btn btn-primary btn-block" id="editUser" rel="'.$user['user_username'].'">Edit</button>
+                        <button type="button" class="btn btn-primary btn-block" id="editUser" rel="'.$user['user_username'].'" onclick=editButton("'.$user['user_id'].'"); data-toggle="modal" data-target="#editModal">Edit</button>
                     </div>
                 </td>
             </tr>
