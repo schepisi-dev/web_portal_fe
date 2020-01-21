@@ -122,7 +122,17 @@
                                 </button>
                             </form>
                             <div class="header-button">
-                                
+                                <div class="noti__item js-item-menu">
+                                        <i class="zmdi zmdi-email"></i>
+                                        <span class="quantity"></span>
+                                        <div class="email-dropdown js-dropdown">
+                                            <div class="email__title">
+                                                <p id="notification-count"></p>
+                                            </div>
+                                            <div id="notif-list"></div>                                            
+                                            
+                                        </div>
+                                    </div>
                                 <div class="account-wrap">
                                     <div class="account-item clearfix js-item-menu">
                                         <div class="content">
