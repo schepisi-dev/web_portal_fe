@@ -66,7 +66,7 @@ function monthlyBilling(month)
             token: localStorage.getItem('token')
         },
 
-        url: 'http://10.128.187.11/web/web_portal_be/reports/accounts/year/'+year+ '?token='+localStorage.getItem('token'),
+        url: localStorage.getItem('url')+'/reports/accounts/year/'+year+ '?token='+localStorage.getItem('token'),
         //dataType: 'json',
         //url: 'annualBilling.php',
         success: function(data, index){            
@@ -147,7 +147,7 @@ function monthlyBilling(month)
                 },
 
                 //url: 'costCentreReport.php',
-                url: 'http://10.128.187.11/web/web_portal_be/reports/cost_centres/get/3/'+year+'/3?token='+localStorage.getItem('token'),
+                url: localStorage.getItem('url')+'/reports/cost_centres/get/3/'+year+'/3?token='+localStorage.getItem('token'),
                 success: function(data, index){            
                     //$('.overview-wrap').append(data);
                    

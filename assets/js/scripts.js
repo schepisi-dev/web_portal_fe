@@ -135,15 +135,177 @@ function alertStatus(status){
         '</div></div>'
     );
 }
-function editButton(s){
-  alert(s);
+function editOrg(val){
+ $.ajax({
+        type: 'GET',
+        data:{
+            token: localStorage.getItem('token')
+        },
+
+        url: localStorage.getItem('url')+ '/api/organization',
+        success: function(data, textStatus ){
+             $.each(data.message, function(i, v) {
+              if (v.organization_id == val) {
+                  $('#editOrg #orgname').val(v.organization_name);
+                  return;
+              }
+          });
+
+        },
+        error: function(xhr, textStatus, errorThrown){
+        }
+    });
+
+
+ $('#updateOrganization').click(function(){
+         
+    var updatetxtOrg = $('#editOrg #orgname');
+    var org = updatetxtOrg.val();
+    $.ajax({
+        type: 'POST',
+        data:{
+            name: org,
+            token: localStorage.getItem('token'),
+            organization_id: val
+        },
+
+        url: localStorage.getItem('url') + '/api/organization/edit/'+val,
+        beforeSend: function( textStatus ) {
+           $('#updateOrganization').text('');
+           $('#updateOrganization').append('Updating Organization <i class="fa fa-spinner fa-pulse"></i>');
+
+        },
+        success: function(data, textStatus ){
+             alert("Successfully updated organization!");
+
+            $.ajax({
+                type: 'POST',
+                data:{
+                    token: localStorage.getItem('token'),
+                    url: window.location.pathname
+                },
+
+                url: 'getData.php',
+                success: function(data, textStatus ){
+                   
+                    $('#data-table').empty();
+                    $('#data-table').prepend(data);
+                    $('table.orgTable').DataTable();
+                    $('.modal').removeClass('show');
+                    $('.modal').removeAttr('style');
+                    $('body').removeClass('modal-open');
+                    $('body').removeAttr('style');
+                    $('div.modal-backdrop.fade.show').remove();
+
+                },
+                error: function(xhr, textStatus, errorThrown){
+                   //alert('You have provided an organization name that is already existing. Please provide a new organization name, for creation to proceed.');
+                }
+            });
+            $('#updateOrganization').text('Submit');
+            $('#editOrg #orgname').val('');
+
+        },
+        error: function(xhr, textStatus, errorThrown){
+           $('#updateOrganization').text('Submit');
+           $('#editOrg #orgname').val('');
+           console.log(xhr + ',' + textStatus + ',' + errorThrown);
+           alert('You have provided an organization name that is already existing. Please provide a new organization name, for creation to proceed.');
+
+        }
+    });
+
+});
+}
+function editButton(val){
+  //alert(val);
+    $.ajax({
+        type: 'GET',
+        data:{
+            token: localStorage.getItem('token')
+        },
+
+        url: localStorage.getItem('url')+ '/api/user',
+        success: function(data, textStatus ){
+             $.each(data.message, function(i, v) {
+              if (v.user_id == val) {
+                  $('#editModal #firstname').val(v.user_first_name);
+                  $('#editModal #lastname').val(v.user_last_name);
+                  $('#editModal #username').val(v.user_username);
+                  $('#editModal #email').val(v.user_email);
+                  $('#editModal #txtRole').text(v.user_role);
+                  $('#editModal #txtOrg').text(v.user_organization_name);
+                  $('#editModal #password').remove();
+                  $('#editModal #confirmpass').remove();
+                  return;
+              }
+          });
+
+        },
+        error: function(xhr, textStatus, errorThrown){
+        }
+    });
+    $('#updateUser').click(function(){
+          var updatefirstname = $('#editModal #firstname').val();
+          var updatelastname = $('#editModal #lastname').val();
+          var updateemail = $('#editModal #email').val();
+          var updateusername = $('#editModal #username').val();
+          $.ajax({
+          type: 'POST',
+          data:{
+              username: updateusername,
+              first_name: updatefirstname,
+              last_name: updatelastname,
+              email: updateemail,
+              id: val,
+              token: localStorage.getItem('token')
+          },
+
+          url: localStorage.getItem('url') + '/api/user/edit/'+val,
+          beforeSend: function( textStatus ) {
+             $('#updateUser').text('');
+             $('#updateUser').append('Adding Organization <i class="fa fa-spinner fa-pulse"></i>');
+
+          },
+          success: function(data, textStatus ){
+            alert('Successfully updated details!');
+            $.ajax({
+                type: 'POST',
+                data:{
+                    token: localStorage.getItem('token'),
+                    url: window.location.pathname,
+                    role: localStorage.getItem('role'),
+                    user: localStorage.getItem('username')
+
+                },
+                url: 'getUsers.php',
+                success: function(data, textStatus){
+                    $('#userData').empty();
+                    $('#userData').prepend(data);
+                    $('#userformdiv').empty();
+                    $('table.usersTable').DataTable(); 
+                },
+                error: function(xhr, textStatus, errorThrown){
+                    console.log(textStatus);
+                }
+            })
+            $('#updateUser').text('Submit');
+          },
+          error: function(xhr, textStatus, errorThrown){
+            $('#updateUser').text('Submit');
+             console.log(xhr);
+
+          }
+      });
+
+    })
 }
 function organizationControls(){
 $("#userData").click(function() {
     var $row = $(this).closest("tr");    // Find the row
     var $text = $row.find("#userName").text(); // Find the text
 
-    alert($text);
+    //alert($text);
 });
 
 
@@ -157,7 +319,7 @@ $("#userData").click(function() {
             token: localStorage.getItem('token')
         },
 
-        url: localStorage.getItem('url') + '/web/web_portal_be/api/organization',
+        url: localStorage.getItem('url') + '/api/organization',
         beforeSend: function( textStatus ) {
            $('#submitOrganization').text('');
            $('#submitOrganization').append('Adding Organization <i class="fa fa-spinner fa-pulse"></i>');
@@ -240,7 +402,7 @@ $("#userData").click(function() {
                     token: localStorage.getItem('token')
                 },
 
-                url: localStorage.getItem('url') + '/web/web_portal_be/api/user',
+                url: localStorage.getItem('url') + '/api/user',
                 beforeSend: function( textStatus ) {
                    $('#submitUser').text('');
                    $('#submitUser').append('Adding User <i class="fa fa-spinner fa-pulse"></i>');           
@@ -255,7 +417,10 @@ $("#userData").click(function() {
                             type: 'POST',
                             data:{
                                 token: localStorage.getItem('token'),
-                                url: window.location.pathname
+                                url: window.location.pathname,
+                                role: localStorage.getItem('role'),
+                                user: localStorage.getItem('username')
+
                             },
                             url: 'getUsers.php',
                             success: function(data, textStatus){
@@ -295,12 +460,11 @@ function onLoadData(){
     else if(window.location.pathname=="/schepisi/dashboard.php"){
         //monthlyBilling();
     }
-
+  
     //$('#chargers_and_credit-table tr').length;
    
     var sessionData = localStorage.getItem('role');
     config();
-
     var sessionURL = localStorage.getItem('url');
     if(sessionData == 'standard' || sessionData == 'basic'){
         $('#drpdownOrg1').remove();
@@ -328,6 +492,7 @@ function onLoadData(){
             $('#data-table').append(data);
             $('#orgCount').append(data);
             $('#drpdownOrg').append(data);
+            $('#editModal #drpdownOrg').append(data);
             $('#drpdownOrg1').append(data);
             $('#drpdownOrg2').append(data);
             $('#drpdownOrg3').append(data);
@@ -369,10 +534,11 @@ function onLoadData(){
             }
 
             if(localStorage.getItem('role') == 'basic' || localStorage.getItem('role') == 'standard'){
+              $('#history').remove(); 
               $('.userTable').remove();              
               $('.userInfo').append(data);
               $(".userInfo").find( 'h5:not(:contains("' + userSearch + '"))' ).remove();
-             //alert($('.userInfo > h5').attr('class'));
+              
             }
             else{
               $('table.usersTable').DataTable(); 
@@ -544,7 +710,7 @@ function onLoadData(){
             token: localStorage.getItem('token')
         },
 
-        url: localStorage.getItem('url') + '/web/web_portal_be/api/user/count',
+        url: localStorage.getItem('url') + '/api/user/count',
         success: function(data, textStatus ){ 
         $('#userCount').text(data.message.count);
             var monthArr = [];
@@ -639,7 +805,7 @@ $.ajax({
             token: localStorage.getItem('token')
         },
 
-        url: localStorage.getItem('url') + '/web/web_portal_be/api/organization/count',
+        url: localStorage.getItem('url') + '/api/organization/count',
         success: function(data, textStatus ){ 
         $('#orgCount').text(data.message.count);
             var monthArr = [];
@@ -720,13 +886,33 @@ $.ajax({
         }
     });
     /*end org count */
-    
+    /*get notifications */
+    $.ajax({
+        type: 'GET',
+        data:{
+            token: localStorage.getItem('token')
+        },
+
+        url: localStorage.getItem('url') + '/api/file_histories/notifications',
+        success: function(data, textStatus ){
+            $('#notification-count').text('You have ' + data.message.length + ' new uploads'); 
+            $('.quantity').text(data.message.length);
+
+            $.each(data.message, function(key, value){
+               $('#notif-list').append('<div class="email__item"><div class="content"><h5>Uploaded By: '+value.uploaded_by+'</h5><p>Uploaded Type: '+value.type+'</p><p>Uploaded Date: '+value.date_uploaded+'</p></div></div>');
+             })
+
+            
+        },
+        error: function(xhr, textStatus, errorThrown){
+           alert(errorThrown);
+
+        }
+    });
+    /*end get notification */
 
 }           
 function uploadBtn(){
-  $('#editUser').click(function(){
-  alert('edit');
-})
 
 $('#uploadChargers').click(function(){
     var drpDown = $('#drpdownOrg1').val();
@@ -745,7 +931,7 @@ $('#uploadChargers').click(function(){
                     token: localStorage.getItem('token')
                 },
 
-                url: localStorage.getItem('url') + '/web/web_portal_be/api/transaction',
+                url: localStorage.getItem('url') + '/api/transaction',
                 beforeSend: function( textStatus ) {
                     $('#uploadChargers').text('');
                     $('#uploadChargers').html('Uploading <i class="fa fa-spinner fa-pulse"></i>');
@@ -798,7 +984,7 @@ $('#uploadChargers').click(function(){
                                 token: localStorage.getItem('token')
                             },
 
-                            url: localStorage.getItem('url') + '/web/web_portal_be/api/transaction',
+                            url: localStorage.getItem('url') + '/api/transaction',
                             beforeSend: function( textStatus ) {
                                $('#uploadCall').html('Uploading <i class="fa fa-spinner fa-pulse"></i>');
 
@@ -853,7 +1039,7 @@ $('#uploadChargers').click(function(){
                             token: localStorage.getItem('token')
                         },
 
-                        url: localStorage.getItem('url') + '/web/web_portal_be/api/transaction',
+                        url: localStorage.getItem('url') + '/api/transaction',
                         beforeSend: function( textStatus ) {
                            $('#uploadService').html('Uploading <i class="fa fa-spinner fa-pulse"></i>');
 

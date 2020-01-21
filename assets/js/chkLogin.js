@@ -1,6 +1,7 @@
 function config(){
    $.get("config.php", function(data, status){
       localStorage.setItem('url',data);
+
     });
 }
 $(document).ready(function(){
@@ -23,8 +24,8 @@ $(document).ready(function(){
                 password: password
             },
 
-            url: sessionURL + '/web/web_portal_be/api/site/login',
-            beforeSend: function( textStatus ) {
+            url: sessionURL + '/api/site/login',
+            beforeSend: function(textStatus,xml) {
                  $('#submit').text('');
                  $('#submit').append('Signing In <i class="fa fa-spinner fa-pulse"></i>');
             },
@@ -36,24 +37,24 @@ $(document).ready(function(){
                var user = data.message['username'];
                var orgName = data.message['organization_name']
 
-               if(window.localStorage){
+              if(window.localStorage){
                 localStorage.setItem('token', token);
                 localStorage.setItem('organization', org);
                 localStorage.setItem('role', role);
                 localStorage.setItem('username', user);
-                localStorage.setItem('orgName',orgName)
+                localStorage.setItem('orgName',orgName);
                   window.setTimeout(function() {
                       window.location.href = 'dashboard.php';
                   }, 3000);
                }
-             
 
             },
-            error: function(exemp ,xml){
+            error: function(exemp ,xml, status){
               txtUser.val('');
               txtPass.val('');            
               $('#submit').text('SIGN IN');
-             $('.notification').append('<div class="alert alert-danger" role="alert">' + exemp +'</div>');
+              $('.notification').append('<div class="alert alert-danger" role="alert">' + exemp.responseJSON.message +'</div>');
+             //console.info(exemp);
 
             }
         });
