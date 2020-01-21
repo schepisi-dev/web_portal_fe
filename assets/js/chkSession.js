@@ -20,7 +20,8 @@ $(document).ready(function(){
 
 	}
 	else{
-		window.location.href= "/schepisi/";
+		//window.location.href= "/schepisi/";
+		alert('error')
 	}
 	
 
