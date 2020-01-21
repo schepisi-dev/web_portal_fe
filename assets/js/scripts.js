@@ -5,13 +5,6 @@ function browserSupportFileUpload() {
     }
     return isCompatible;
 }
-
-function config(){
-   $.get("config.php", function(data, status){
-      localStorage.setItem('url',data);
-    });
-}
-
 function UploadIt(buttonID) {
   var fileUpload = document.getElementById(buttonID);
   var allowedFiles = ['.csv'];
@@ -166,7 +159,7 @@ function editOrg(val){
         data:{
             name: org,
             token: localStorage.getItem('token'),
-            organization_id: val
+            id: val
         },
 
         url: localStorage.getItem('url') + '/api/organization/edit/'+val,
@@ -209,7 +202,7 @@ function editOrg(val){
         error: function(xhr, textStatus, errorThrown){
            $('#updateOrganization').text('Submit');
            $('#editOrg #orgname').val('');
-           console.log(xhr + ',' + textStatus + ',' + errorThrown);
+           console.log(xhr + ',' + textStatus + ',' + errorThrown + ' ' + val);
            alert('You have provided an organization name that is already existing. Please provide a new organization name, for creation to proceed.');
 
         }
@@ -300,6 +293,8 @@ function editButton(val){
 
     })
 }
+
+
 function organizationControls(){
 $("#userData").click(function() {
     var $row = $(this).closest("tr");    // Find the row
@@ -460,11 +455,8 @@ function onLoadData(){
     else if(window.location.pathname=="/schepisi/dashboard.php"){
         //monthlyBilling();
     }
-  
-    //$('#chargers_and_credit-table tr').length;
-   
+
     var sessionData = localStorage.getItem('role');
-    config();
     var sessionURL = localStorage.getItem('url');
     if(sessionData == 'standard' || sessionData == 'basic'){
         $('#drpdownOrg1').remove();
@@ -910,7 +902,17 @@ $.ajax({
         }
     });
     /*end get notification */
-
+    $(document).on('click', '#btn-history', function() {
+      if($(this).siblings().hasClass('active')){
+        $(this).siblings().removeClass('active');
+      }
+      else{
+        $(this).siblings().addClass('active');
+      }
+      
+    });
+    $('#accounts').click(function(){
+    })
 }           
 function uploadBtn(){
 

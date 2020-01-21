@@ -93,42 +93,68 @@ include('sidebar.php');
                                                 </div>
                                                 <div class="row form-group">
                                                     <div class="col col-md-6">
-                                                        <select class="form-control" id="drpdownRole">
-                                                            <option value="0">Select User Role</option>
-                                                            <option id='administrator' value="administrator">Admin</option>
-                                                            <option id='standard' value="standard">Standard User</option>
-                                                            <option id='basic' value="basic">Basic User</option>
-                                                        </select>
+                                                            <label for="role"><h5>User Role</h5></label>
+                                                            <div class="col col-md-12">
+                                                                <select class="form-control" id="drpdownRole">
+                                                                    <option value="0">Select User Role</option>
+                                                                    <option id='administrator' value="administrator">Admin</option>
+                                                                    <option id='standard' value="standard">Standard User</option>
+                                                                    <option id='basic' value="basic">Basic User</option>
+                                                                </select> 
+                                                            </div>
+                                                                                                                   
                                                     </div>
                                                     <div class="col col-md-6">
-                                                        <select class="form-control" id="drpdownOrg" name="drpdownOrg">
-                                                            <option id="0" value="0">Select Organization</option>
-                                                        </select>
+                                                        <label for="role"><h5>Organization</h5></label>
+                                                        <div class="col col-md-12">
+                                                            <select class="form-control" id="drpdownOrg" name="drpdownOrg">
+                                                                <option id="0" value="0">Select Organization</option>
+                                                            </select>
+                                                        </div>
                                                     </div>
                                                 </div>
                                                 <div class="row form-group">
                                                     <div class="col col-md-6">
-                                                        <input type="text" placeholder="First Name" class="form-control" id="firstname" name="firstname">
+                                                        <label for="role"><h5>First Name</h5></label>
+                                                        <div class="col col-md-12">
+                                                            <input type="text" placeholder="First Name" class="form-control" id="firstname" name="firstname">
+                                                        </div>
+                                                        
                                                     </div>
                                                     <div class="col col-md-6">
-                                                        <input type="text" placeholder="Last Name" class="form-control" id="lastname" name="lastname">
+                                                        <label for="role"><h5>Last Name</h5></label>
+                                                        <div class="col col-md-12">
+                                                            <input type="text" placeholder="Last Name" class="form-control" id="lastname" name="lastname">
+                                                        </div>
                                                     </div>
                                                 </div>
                                                 <div class="row form-group">
                                                     <div class="col col-md-6">
-                                                        <input type="text" placeholder="Username" class="form-control"  id="username" name="username">
+                                                        <label for="role"><h5>Username</h5></label>
+                                                            <div class="col col-md-12">
+                                                                <input type="text" placeholder="Username" class="form-control"  id="username" name="username">
+                                                            </div>
                                                     </div>
                                                     <div class="col col-md-6">
-                                                        <input type="text" placeholder="Email Address" class="form-control" id="email" name="email">
+                                                        <label for="role"><h5>Email Address</h5></label>
+                                                            <div class="col col-md-12">
+                                                            <input type="text" placeholder="Email Address" class="form-control" id="email" name="email">
+                                                            </div>
                                                     </div>
                                                 </div>
 
                                                  <div class="row form-group">
                                                     <div class="col col-md-6">
-                                                        <input type="password" placeholder="Input Password" class="form-control" id="password" name="password">
+                                                        <label for="role"><h5>Password</h5></label>
+                                                            <div class="col col-md-12">
+                                                                <input type="password" placeholder="Input Password" class="form-control" id="password" name="password">
+                                                            </div>
                                                     </div>
                                                     <div class="col col-md-6">
-                                                        <input type="password" placeholder="Confirm Password" class="form-control" id="confirmpass" name="confirmpass">
+                                                        <label for="role"><h5>Confirm Password</h5></label>
+                                                            <div class="col col-md-12">
+                                                            <input type="password" placeholder="Confirm Password" class="form-control" id="confirmpass" name="confirmpass">
+                                                            </div>
                                                     </div>
                                                 </div>
                                             </form>
@@ -149,7 +175,11 @@ include('sidebar.php');
 
                     <!--edit user -->
 
+<<<<<<< HEAD
  <!-- modal static -->
+=======
+                    <!-- modal static -->
+>>>>>>> master
                         <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="staticModalLabel" aria-hidden="true"
                          data-backdrop="static">
                             <div class="modal-dialog modal-lg" role="document">
@@ -168,26 +198,65 @@ include('sidebar.php');
                                                 </div>
                                                 <div class="row form-group">
                                                     <div class="col col-md-6">
+<<<<<<< HEAD
                                                         <div class="form-control" id="txtRole"></div>
                                                     </div>
                                                     <div class="col col-md-6">
                                                          <div class="form-control" id="txtOrg"></div>
+=======
+                                                         <label for="role"><h5>User Role</h5></label>
+                                                            <div class="col col-md-12">
+                                                                <p id="txtRole"></p>
+                                                            </div>
+                                                    </div>
+                                                    <div class="col col-md-6">
+                                                        <label for="role"><h5>User Organization</h5></label>
+                                                            <div class="col col-md-12">
+                                                                <p id="txtOrg"></p>
+                                                            </div>
+>>>>>>> master
                                                     </div>
                                                 </div>
                                                 <div class="row form-group">
                                                     <div class="col col-md-6">
+<<<<<<< HEAD
                                                         <input type="text" placeholder="First Name" class="form-control" id="firstname" name="firstname">
                                                     </div>
                                                     <div class="col col-md-6">
                                                         <input type="text" placeholder="Last Name" class="form-control" id="lastname" name="lastname">
+=======
+                                                        <label for="role"><h5>First Name</h5></label>
+                                                            <div class="col col-md-12">
+                                                            <input type="text" placeholder="First Name" class="form-control" id="firstname" name="firstname">
+                                                            </div>
+                                                    </div>
+                                                    <div class="col col-md-6">
+                                                        <label for="role"><h5>Last Name</h5></label>
+                                                            <div class="col col-md-12">
+                                                            <input type="text" placeholder="Last Name" class="form-control" id="lastname" name="lastname">
+                                                            </div>
+>>>>>>> master
                                                     </div>
                                                 </div>
                                                 <div class="row form-group">
                                                     <div class="col col-md-6">
+<<<<<<< HEAD
                                                         <input type="text" placeholder="Username" class="form-control"  id="username" name="username">
                                                     </div>
                                                     <div class="col col-md-6">
                                                         <input type="text" placeholder="Email Address" class="form-control" id="email" name="email">
+=======
+                                                        <label for="role"><h5>Username</h5></label>
+                                                            <div class="col col-md-12">
+                                                            <input type="text" placeholder="Username" class="form-control"  id="username" name="username">
+                                                            </div>
+                                                    </div>
+                                                    <div class="col col-md-6">
+                                                        <label for="role"><h5>Email Address</h5></label>
+                                                            <div class="col col-md-12">
+                                                            <input type="text" placeholder="Email Address" class="form-control" id="email" name="email">
+                                                        </div>
+>>>>>>> master
                                                     </div>
                                                 </div>
                                             </form>

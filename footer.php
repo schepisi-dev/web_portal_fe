@@ -16,7 +16,6 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                <button type="button" class="btn btn-primary">Confirm</button>
             </div>
         </div>
     </div>
@@ -24,6 +23,7 @@
 
 <!-- end modal static -->
 
+<<<<<<< HEAD
 <!-- modal static -->
     <div class="modal fade" id="historyModal" tabindex="-1" role="dialog" aria-labelledby="staticModalLabel" aria-hidden="true"
      data-backdrop="static">
@@ -52,6 +52,8 @@
     </div>
                     <!-- end modal static -->
 
+=======
+>>>>>>> master
     <!-- Jquery JS-->
     <script src="vendor/jquery-3.2.1.min.js"></script>
      <script type="text/javscript" src="assets/js/jquery.min.js"></script>
