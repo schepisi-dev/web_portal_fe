@@ -166,7 +166,7 @@ function editOrg(val){
         data:{
             name: org,
             token: localStorage.getItem('token'),
-            organization_id: val
+            id: val
         },
 
         url: localStorage.getItem('url') + '/api/organization/edit/'+val,
@@ -209,7 +209,7 @@ function editOrg(val){
         error: function(xhr, textStatus, errorThrown){
            $('#updateOrganization').text('Submit');
            $('#editOrg #orgname').val('');
-           console.log(xhr + ',' + textStatus + ',' + errorThrown);
+           console.log(xhr + ',' + textStatus + ',' + errorThrown + ' ' + val);
            alert('You have provided an organization name that is already existing. Please provide a new organization name, for creation to proceed.');
 
         }
