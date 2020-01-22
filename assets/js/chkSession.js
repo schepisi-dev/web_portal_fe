@@ -4,7 +4,7 @@ function logout(){
 	localStorage.removeItem('token');
 	localStorage.removeItem('username');
 	localStorage.removeItem('role');
-	window.location.href = '/schepisi/';
+	window.location.href = '/web_portal_fe/';
 }
 
 $(document).ready(function(){
@@ -20,8 +20,8 @@ $(document).ready(function(){
 
 	}
 	else{
-		//window.location.href= "/schepisi/";
-		alert('error')
+		window.location.href= "/web_portal_fe/";
+		//alert('error')
 	}
 	
 

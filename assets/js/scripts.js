@@ -129,7 +129,8 @@ function alertStatus(status){
     );
 }
 function archiveOrg(val){
- if(confirm("Are you sure you want to delete this?")){
+
+ if(confirm("Are you sure you want to archive this organization and its inner organizations? If yes click ok to confirm and if no please click cancel to proceed")){
     $.ajax({
         type: 'POST',
         data:{
@@ -139,7 +140,31 @@ function archiveOrg(val){
 
         url: localStorage.getItem('url') + '/api/organization/delete/'+val+"?token="+localStorage.getItem('token'),
         success: function(data, textStatus ){
-             console.log('archived!');
+             alert('Archive has been successfully completed!');
+             $.ajax({
+                    type: 'POST',
+                    data:{
+                        token: localStorage.getItem('token'),
+                        url: window.location.pathname
+                    },
+
+                    url: 'getData.php',
+                    success: function(data, textStatus ){
+                       
+                        $('#data-table').empty();
+                        $('#data-table').prepend(data);
+                        $('table.orgTable').DataTable();
+                        $('.modal').removeClass('show');
+                        $('.modal').removeAttr('style');
+                        $('body').removeClass('modal-open');
+                        $('body').removeAttr('style');
+                        $('div.modal-backdrop.fade.show').remove();
+
+                    },
+                    error: function(xhr, textStatus, errorThrown){
+                       //alert('You have provided an organization name that is already existing. Please provide a new organization name, for creation to proceed.');
+                    }
+                });
 
         },
         error: function(xhr, textStatus, errorThrown){
@@ -508,7 +533,7 @@ function onLoadData(){
         //monthlyBilling();
     }
     if(localStorage.getItem('log') == 'logged-on'){
-      alert('Welcome Back!');
+      alert('Welcome Back' + localStorage.getItem('username'));
       localStorage.removeItem('log');
     }
     var sessionData = localStorage.getItem('role');
@@ -526,6 +551,27 @@ function onLoadData(){
     }
     var limit = $('#paginator').val();
 
+    /*$.ajax({
+        type: 'GET',
+        data:{
+            token: localStorage.getItem('token')
+        },
+
+        url: localStorage.getItem('url')+'/api/site/login?token='+localStorage.getItem('token'),
+        success: function(data, textStatus ){
+          var countUser = Object.keys(data).length;
+            //console.log(countUser);
+            if(countUser == 0){
+              window.location.href= "/schepisi/";
+            }
+            
+        },
+        error: function(xhr, textStatus, errorThrown){
+           //$('#submitOrganization').text('Submit');
+           console.log(errorThrown);
+
+        }
+    });*/
     $.ajax({
         type: 'POST',
         data:{
@@ -552,7 +598,7 @@ function onLoadData(){
         },
         error: function(xhr, textStatus, errorThrown){
            //$('#submitOrganization').text('Submit');
-           alert(errorThrown);
+           console.log(errorThrown);
 
         }
     });
@@ -614,7 +660,7 @@ function onLoadData(){
             
         },
         error: function(xhr, textStatus, errorThrown){
-           alert(errorThrown);
+           console.log(errorThrown);
 
         }
     });
@@ -633,7 +679,7 @@ function onLoadData(){
             $('table.usageTable').DataTable();
         },
         error: function(xhr, textStatus, errorThrown){
-           alert(errorThrown);
+           console.log(errorThrown);
 
         }
     });
@@ -653,7 +699,7 @@ function onLoadData(){
 
         },
         error: function(xhr, textStatus, errorThrown){
-           alert(errorThrown);
+           console.log(errorThrown);
 
         }
     });
@@ -705,7 +751,7 @@ function onLoadData(){
         },
         error: function(xhr, textStatus, errorThrown){
            //$('#submitOrganization').text('Submit');
-           alert(errorThrown);
+           console.log(errorThrown);
 
         }
     });
@@ -952,7 +998,7 @@ $.ajax({
             
         },
         error: function(xhr, textStatus, errorThrown){
-           alert(errorThrown);
+           console.log(errorThrown);
 
         }
     });
