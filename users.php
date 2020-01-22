@@ -175,11 +175,7 @@ include('sidebar.php');
 
                     <!--edit user -->
 
-<<<<<<< HEAD
- <!-- modal static -->
-=======
                     <!-- modal static -->
->>>>>>> master
                         <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="staticModalLabel" aria-hidden="true"
                          data-backdrop="static">
                             <div class="modal-dialog modal-lg" role="document">
@@ -198,12 +194,6 @@ include('sidebar.php');
                                                 </div>
                                                 <div class="row form-group">
                                                     <div class="col col-md-6">
-<<<<<<< HEAD
-                                                        <div class="form-control" id="txtRole"></div>
-                                                    </div>
-                                                    <div class="col col-md-6">
-                                                         <div class="form-control" id="txtOrg"></div>
-=======
                                                          <label for="role"><h5>User Role</h5></label>
                                                             <div class="col col-md-12">
                                                                 <p id="txtRole"></p>
@@ -214,17 +204,10 @@ include('sidebar.php');
                                                             <div class="col col-md-12">
                                                                 <p id="txtOrg"></p>
                                                             </div>
->>>>>>> master
                                                     </div>
                                                 </div>
                                                 <div class="row form-group">
                                                     <div class="col col-md-6">
-<<<<<<< HEAD
-                                                        <input type="text" placeholder="First Name" class="form-control" id="firstname" name="firstname">
-                                                    </div>
-                                                    <div class="col col-md-6">
-                                                        <input type="text" placeholder="Last Name" class="form-control" id="lastname" name="lastname">
-=======
                                                         <label for="role"><h5>First Name</h5></label>
                                                             <div class="col col-md-12">
                                                             <input type="text" placeholder="First Name" class="form-control" id="firstname" name="firstname">
@@ -235,17 +218,10 @@ include('sidebar.php');
                                                             <div class="col col-md-12">
                                                             <input type="text" placeholder="Last Name" class="form-control" id="lastname" name="lastname">
                                                             </div>
->>>>>>> master
                                                     </div>
                                                 </div>
                                                 <div class="row form-group">
                                                     <div class="col col-md-6">
-<<<<<<< HEAD
-                                                        <input type="text" placeholder="Username" class="form-control"  id="username" name="username">
-                                                    </div>
-                                                    <div class="col col-md-6">
-                                                        <input type="text" placeholder="Email Address" class="form-control" id="email" name="email">
-=======
                                                         <label for="role"><h5>Username</h5></label>
                                                             <div class="col col-md-12">
                                                             <input type="text" placeholder="Username" class="form-control"  id="username" name="username">
@@ -256,7 +232,6 @@ include('sidebar.php');
                                                             <div class="col col-md-12">
                                                             <input type="text" placeholder="Email Address" class="form-control" id="email" name="email">
                                                         </div>
->>>>>>> master
                                                     </div>
                                                 </div>
                                             </form>

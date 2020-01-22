@@ -9,11 +9,7 @@ foreach ($history as $uploadHistory)
 {
 		echo '<tr><td>'.$uploadHistory['id'].'</td>';
 		echo '<td>'.$uploadHistory['type'].'</td>';
-<<<<<<< HEAD
-		echo '<td><a href="#" data-toggle="modal" data-target="#historyModal">'.$uploadHistory['uploaded_by'].'</a></td>';
-=======
 		echo '<td><a href="#" id="btn-history">'.$uploadHistory['uploaded_by'].'</a><div class = "historyInfo"><h5>File Upload Information</h5><span>First ID: </span>'.$uploadHistory['info']['first_id'].'<br><span>Last ID:</span> '.$uploadHistory['info']['last_id'].'<br><span>Upload Type: </span>'.$uploadHistory['info']['date_uploaded'].'<br><span>Date Uploaded: </span>'.$uploadHistory['info']['date_uploaded'].'</div></td>';
->>>>>>> master
 		echo '<td>'.$uploadHistory['date_uploaded'].'</td></tr>';
 }
 
