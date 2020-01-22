@@ -140,6 +140,7 @@ function editOrg(val){
              $.each(data.message, function(i, v) {
               if (v.organization_id == val) {
                   $('#editOrg #orgname').val(v.organization_name);
+                  $('#updateOrganization').attr('rel',v.organization_name);
                   return;
               }
           });
@@ -154,61 +155,68 @@ function editOrg(val){
          
     var updatetxtOrg = $('#editOrg #orgname');
     var org = updatetxtOrg.val();
-    $.ajax({
-        type: 'POST',
-        data:{
-            name: org,
-            token: localStorage.getItem('token'),
-            id: val
-        },
+    console.log(org);
 
-        url: localStorage.getItem('url') + '/api/organization/edit/'+val,
-        beforeSend: function( textStatus ) {
-           $('#updateOrganization').text('');
-           $('#updateOrganization').append('Updating Organization <i class="fa fa-spinner fa-pulse"></i>');
+      if(confirm("Do you wish to edit the information for "+$(this).attr('rel')+"? If yes please click ok to confirm and if no please click cancel to proceed")){
+          $.ajax({
+            type: 'POST',
+            data:{
+                name: org,
+                token: localStorage.getItem('token'),
+                id: val
+            },
 
-        },
-        success: function(data, textStatus ){
-             alert("Successfully updated organization!");
+            url: localStorage.getItem('url') + '/api/organization/edit/'+val,
+            beforeSend: function( textStatus ) {
+               $('#updateOrganization').text('');
+               $('#updateOrganization').append('Updating Organization <i class="fa fa-spinner fa-pulse"></i>');
 
-            $.ajax({
-                type: 'POST',
-                data:{
-                    token: localStorage.getItem('token'),
-                    url: window.location.pathname
-                },
+            },
+            success: function(data, textStatus ){
+                 alert("Successfully updated organization!");
 
-                url: 'getData.php',
-                success: function(data, textStatus ){
-                   
-                    $('#data-table').empty();
-                    $('#data-table').prepend(data);
-                    $('table.orgTable').DataTable();
-                    $('.modal').removeClass('show');
-                    $('.modal').removeAttr('style');
-                    $('body').removeClass('modal-open');
-                    $('body').removeAttr('style');
-                    $('div.modal-backdrop.fade.show').remove();
+                $.ajax({
+                    type: 'POST',
+                    data:{
+                        token: localStorage.getItem('token'),
+                        url: window.location.pathname
+                    },
 
-                },
-                error: function(xhr, textStatus, errorThrown){
-                   //alert('You have provided an organization name that is already existing. Please provide a new organization name, for creation to proceed.');
-                }
-            });
-            $('#updateOrganization').text('Submit');
-            $('#editOrg #orgname').val('');
+                    url: 'getData.php',
+                    success: function(data, textStatus ){
+                       
+                        $('#data-table').empty();
+                        $('#data-table').prepend(data);
+                        $('table.orgTable').DataTable();
+                        $('.modal').removeClass('show');
+                        $('.modal').removeAttr('style');
+                        $('body').removeClass('modal-open');
+                        $('body').removeAttr('style');
+                        $('div.modal-backdrop.fade.show').remove();
 
-        },
-        error: function(xhr, textStatus, errorThrown){
-           $('#updateOrganization').text('Submit');
-           $('#editOrg #orgname').val('');
-           console.log(xhr + ',' + textStatus + ',' + errorThrown + ' ' + val);
-           alert('You have provided an organization name that is already existing. Please provide a new organization name, for creation to proceed.');
+                    },
+                    error: function(xhr, textStatus, errorThrown){
+                       //alert('You have provided an organization name that is already existing. Please provide a new organization name, for creation to proceed.');
+                    }
+                });
+                $('#updateOrganization').text('Submit');
+                $('#editOrg #orgname').val('');
 
-        }
-    });
+            },
+            error: function(xhr, textStatus, errorThrown){
+               $('#updateOrganization').text('Submit');
+               $('#editOrg #orgname').val('');
+               console.log(xhr + ',' + textStatus + ',' + errorThrown + ' ' + val);
+               alert('You have provided an organization name that is already existing. Please provide a new organization name, for creation to proceed.');
 
-});
+            }
+        });
+      }
+      else{
+          return false;
+      }
+
+  });
 }
 function editButton(val){
   //alert(val);
@@ -372,7 +380,9 @@ $("#userData").click(function() {
     var password = $('#password').val();
     var username = $('#username').val();
     var matched = $('#confirmpass').val();
-    if(password != matched){
+
+     if(confirm("All information has been filled-up, please click on submit to confirm that all placed information are accurate and correct, if not please click on cancel to edit further")){
+       if(password != matched){
         alertStatus("Password did not match");
     }
     else if($('#drpdownOrg').val() == 0 || $('#drpdownRole').val() == 0){
@@ -437,10 +447,28 @@ $("#userData").click(function() {
                 }
             }); 
 
+      }
     }
+    else{
+        return false;
+    }
+
+   
 });
 
+$('#userModal button[type="reset"]').click(function(){
+ if(confirm("Are you sure you want to clear all filled-up information? If yes click submit to confirm, if not please click clear to cancel this action")){
+        $('#userform').find('input[type=text]').val('');
+        $('#userform').find('input[type=password]').val('');
+        $('#drpdownRole option[value="0"]').attr('selected',true);
+        $('#drpdownOrg option[value="0"]').attr('selected',true);
+    }
+  else{
+        return false;
+  }
 
+  
+  })
 }
 checkUrlParam(window.location.href);
 function pagination(limit){
