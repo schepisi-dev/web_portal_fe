@@ -111,6 +111,42 @@ include('sidebar.php');
                 </div>
             </div>
             <!-- end modal static -->
+
+            <!-- modal static -->
+            <div class="modal fade" id="editOrg" tabindex="-1" role="dialog" aria-labelledby="staticModalLabel" aria-hidden="true"
+             data-backdrop="static">
+                <div class="modal-dialog modal-lg" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="staticModalLabel">Update organization</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <p>
+                                <form action="" method="post" class="form-horizontal">
+                                    <div class="row form-group">
+                                     
+                                        <div class="col-12 col-md-9">
+                                            <input type="text" id="orgname" name="orgname" placeholder="Enter organization name..." class="form-control">
+                                        </div>
+                                    </div>
+                                </form> 
+                            </p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-primary btn-sm" id="updateOrganization">
+                                <i class="fa fa-dot-circle-o"></i> Submit
+                            </button>
+                            <button type="reset" class="btn btn-danger btn-sm">
+                                <i class="fa fa-ban"></i> Clear
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- end modal static -->
             <!-- END PAGE CONTAINER-->
         </div>
 

@@ -1,7 +1,7 @@
 <?php
-$url = 'http://10.128.187.11';
+include 'config.php';
 $token = $_POST['token'];
-$json = file_get_contents($url.'/web/web_portal_be/api/organization/?token='.$token); 
+$json = file_get_contents($url.'/api/organization?token='.$token); 
 $data = json_decode($json,true);
 $URL = $_POST['url'];
 $totalCount = 0;
@@ -16,7 +16,7 @@ foreach ($org as $organization)
 		    <td id="createdDate">'.$organization['organization_created_on'].'</td>
 		    <td id="action">
 	            <div class="table-data__info table-data-feature">
-	                <button type="button" class="btn btn-primary btn-block" id="editOrganization">Edit</button>
+	                <button type="button" class="btn btn-primary btn-block" id="editOrganization" rel="'.$organization['organization_id'].'" onclick=editOrg("'.$organization['organization_id'].'"); data-toggle="modal" data-target="#editOrg">Edit</button>
 	            </div>
             </td>
 		</tr>';

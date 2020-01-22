@@ -1,7 +1,7 @@
 <?php
-$url = 'http://10.128.187.11';
+include 'config.php';
 $token = $_POST['token'];
-$json = file_get_contents($url.'/web/web_portal_be/api/cost_centre?token='.$token); 
+$json = file_get_contents($url.'/api/cost_centre?token='.$token); 
 $data = json_decode($json,true);
 $devices = $data['message'];
 
