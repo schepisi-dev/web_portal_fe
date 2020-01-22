@@ -16,7 +16,9 @@ foreach ($org as $organization)
 		    <td id="createdDate">'.$organization['organization_created_on'].'</td>
 		    <td id="action">
 	            <div class="table-data__info table-data-feature">
-	                <button type="button" class="btn btn-primary btn-block" id="editOrganization" rel="'.$organization['organization_id'].'" onclick=editOrg("'.$organization['organization_id'].'"); data-toggle="modal" data-target="#editOrg">Edit</button>
+	            <div class="col-md-4"><button type="button" class="btn btn-primary btn-block" id="editOrganization" rel="'.$organization['organization_id'].'" onclick=editOrg("'.$organization['organization_id'].'"); data-toggle="modal" data-target="#editOrg">Edit</button></div>
+	            <div class="col-md-4"><button type="button" class="btn btn-primary btn-block" id="archiveOrganization" rel="'.$organization['organization_id'].'" onclick=archiveOrg("'.$organization['organization_id'].'");>Archive</button></div>    
+	                
 	            </div>
             </td>
 		</tr>';

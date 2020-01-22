@@ -128,6 +128,31 @@ function alertStatus(status){
         '</div></div>'
     );
 }
+function archiveOrg(val){
+ if(confirm("Are you sure you want to delete this?")){
+    $.ajax({
+        type: 'POST',
+        data:{
+            id:val,
+            token: localStorage.getItem('token')
+        },
+
+        url: localStorage.getItem('url') + '/api/organization/delete/'+val+"?token="+localStorage.getItem('token'),
+        success: function(data, textStatus ){
+             console.log('archived!');
+
+        },
+        error: function(xhr, textStatus, errorThrown){
+          console.log(xhr + " " + textStatus + " " + errorThrown);
+        }
+    });
+  }
+  else{
+      return false;
+  }
+
+
+}
 function editOrg(val){
  $.ajax({
         type: 'GET',
@@ -155,7 +180,6 @@ function editOrg(val){
          
     var updatetxtOrg = $('#editOrg #orgname');
     var org = updatetxtOrg.val();
-    console.log(org);
 
       if(confirm("Do you wish to edit the information for "+$(this).attr('rel')+"? If yes please click ok to confirm and if no please click cancel to proceed")){
           $.ajax({
@@ -483,7 +507,10 @@ function onLoadData(){
     else if(window.location.pathname=="/schepisi/dashboard.php"){
         //monthlyBilling();
     }
-
+    if(localStorage.getItem('log') == 'logged-on'){
+      alert('Welcome Back!');
+      localStorage.removeItem('log');
+    }
     var sessionData = localStorage.getItem('role');
     var sessionURL = localStorage.getItem('url');
     if(sessionData == 'standard' || sessionData == 'basic'){
