@@ -53,14 +53,14 @@ $(document).ready(function(){
               txtUser.val('');
               txtPass.val('');            
               $('#submit').text('SIGN IN');
-              $('.notification').append('<div class="alert alert-danger" role="alert">' + exemp.responseJSON.message +'</div>');
+              $('.notification').append('<div class="alert alert-danger" role="alert">Provided information was incorrect. Kindly provide the correct information to continue.</div>');
              //console.info(exemp);
 
             }
         });
     });
   if(localStorage.getItem('session') == 'expired'){
-    alert('You have been logged out due to inactivity!');
+    alert('Enough inactivity was detected on your session that caused your profile to be logged-out. Please click on (the check icon) below to access the portal again.');
     localStorage.removeItem('session');
   }
 });
