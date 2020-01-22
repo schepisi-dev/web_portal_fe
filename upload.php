@@ -10,7 +10,7 @@ include('sidebar.php');
                             <div class="col-lg-12">
 
                                 <!-- Tabular Content -->
-                                        <h2 class="title-1 m-b-25">Upload Files</h2>
+                                        <h2 class="title-1 m-b-25">Transactions</h2>
                                         <div id="jsonOutput"></div>
                                         <div class="card-body">
                                             <div class="custom-tab">

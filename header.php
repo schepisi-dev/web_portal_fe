@@ -125,6 +125,7 @@
                                 <div class="noti__item js-item-menu">
                                         <i class="zmdi zmdi-email"></i>
                                         <span class="quantity"></span>
+
                                         <div class="email-dropdown js-dropdown">
                                             <div class="email__title">
                                                 <p id="notification-count"></p>
@@ -136,6 +137,7 @@
                                 <div class="account-wrap">
                                     <div class="account-item clearfix js-item-menu">
                                         <div class="content">
+                                            <span class="welcomeNote"></span>
                                             <a class="js-acc-btn" href="#" id="userName"></a>
                                         </div>
                                         <div class="account-dropdown js-dropdown">
