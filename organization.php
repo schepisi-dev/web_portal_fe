@@ -33,6 +33,8 @@ include('sidebar.php');
                                                             <tr>
                                                                 <th>ORGANIZATION NAME</th>
                                                                 <th>CREATED DATE</th>
+                                                                <th>ARCHIVED</th>
+                                                                <th>ARCHIVED DATE</th>
                                                                 <th>ACTION</th>
                                                             </tr>
                                                             </thead>
@@ -43,6 +45,8 @@ include('sidebar.php');
                                                             <tr>
                                                                 <th>ORGANIZATION NAME</th>
                                                                 <th>CREATED DATE</th>
+                                                                <th>ARCHIVED</th>
+                                                                <th>ARCHIVED DATE</th>
                                                                 <th>ACTION</th>
                                                             </tr>
                                                             </tfoot>
@@ -137,7 +141,7 @@ include('sidebar.php');
                         </div>
                         <div class="modal-footer">
                             <button type="submit" class="btn btn-primary btn-sm" id="updateOrganization">
-                                <i class="fa fa-dot-circle-o"></i> Submit
+                                <i class="fa fa-dot-circle-o"></i> Update
                             </button>
                             <button type="reset" class="btn btn-danger btn-sm">
                                 <i class="fa fa-ban"></i> Clear

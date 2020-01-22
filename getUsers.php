@@ -11,7 +11,7 @@ $users = $data['message'];
 foreach ($users as $user)
 {
 
-	if($URL !='/schepisi/users.php'){
+	if($URL !='/web_portal_fe/users.php'){
 		if($user['user_organization_name']){
 			$totalUserCount = $totalUserCount+1;
 		}
