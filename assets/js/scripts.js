@@ -532,10 +532,8 @@ function onLoadData(){
     else if(window.location.pathname=="/schepisi/dashboard.php"){
         //monthlyBilling();
     }
-    if(localStorage.getItem('log') == 'logged-on'){
-      alert('Welcome Back' + localStorage.getItem('username'));
-      localStorage.removeItem('log');
-    }
+      $('.welcomeNote').text('Welcome back,');
+    
     var sessionData = localStorage.getItem('role');
     var sessionURL = localStorage.getItem('url');
     if(sessionData == 'standard' || sessionData == 'basic'){

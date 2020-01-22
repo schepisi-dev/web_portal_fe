@@ -43,7 +43,6 @@ $(document).ready(function(){
                 localStorage.setItem('role', role);
                 localStorage.setItem('username', user);
                 localStorage.setItem('orgName',orgName);
-                localStorage.setItem('log','logged-on');
                   window.setTimeout(function() {
                       window.location.href = 'dashboard.php';
                   }, 3000);
