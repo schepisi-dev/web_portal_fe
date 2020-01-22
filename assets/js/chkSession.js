@@ -4,7 +4,7 @@ function logout(){
 	localStorage.removeItem('token');
 	localStorage.removeItem('username');
 	localStorage.removeItem('role');
-	window.location.href= window.location.href;
+	window.location.href = '/schepisi/';
 }
 
 $(document).ready(function(){
@@ -26,7 +26,12 @@ $(document).ready(function(){
 	
 
 	$('#logout').click(function(){
-		 logout();
+		if(confirm("Are you sure you want to log-out? If yes click ok to proceed and if not click cancel to go back to the dashboard.")){
+        	logout();
+    	}
+    	else{
+        	return false;
+    	} 
 	})
 
 	         
@@ -51,7 +56,7 @@ $(document).ready(function(){
 						localStorage.removeItem('username');
 						localStorage.removeItem('role');
 						localStorage.setItem('session','expired');
-						window.location.href= window.location.href;
+						window.location.href= '/schepisi/';
 						
                 },autologout);
 
