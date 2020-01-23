@@ -28,7 +28,7 @@ function monthlyBilling(month)
                       "container": "pieChartContainer"
                     }
                   };
-                  if(window.location.pathname=='/schepisi/dashboard.php'){
+                  if(window.location.pathname=='/web_portal_fe/dashboard.php'){
                    pieChart = anychart.fromJson(jsonData); 
                     pieChart.draw();
                     }
@@ -121,7 +121,7 @@ function monthlyBilling(month)
             chart.interactivity().hoverMode('by-x');
             chart.tooltip().displayMode('union');
 
-            if(window.location.pathname == '/schepisi/dashboard.php'){
+            if(window.location.pathname == '/web_portal_fe/dashboard.php'){
             // set container id for the chart
             chart.container('barChartContainer');
             chart.draw();
@@ -228,14 +228,14 @@ function monthlyBilling(month)
                             .padding([0, 0, 20, 0]);
 
                     // set container for the chart and define padding
-                    if(window.location.pathname == '/schepisi/cost.php'){
+                    if(window.location.pathname == '/web_portal_fe/cost.php'){
                         chart.container('lineGraphContainer');
                         chart.draw();
                     }
                     $('.anychart-credits').remove();
                 },
                 error: function(xhr, textStatus, errorThrown){
-                   console.log(xhr);
+                   console.log(errorThrown);
 
                 }
             });
