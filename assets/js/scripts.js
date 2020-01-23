@@ -300,54 +300,62 @@ function editButton(val){
           var updatelastname = $('#editModal #lastname').val();
           var updateemail = $('#editModal #email').val();
           var updateusername = $('#editModal #username').val();
-          $.ajax({
-          type: 'POST',
-          data:{
-              username: updateusername,
-              first_name: updatefirstname,
-              last_name: updatelastname,
-              email: updateemail,
-              id: val,
-              token: localStorage.getItem('token')
-          },
 
-          url: localStorage.getItem('url') + '/api/user/edit/'+val,
-          beforeSend: function( textStatus ) {
-             $('#updateUser').text('');
-             $('#updateUser').append('Adding Organization <i class="fa fa-spinner fa-pulse"></i>');
-
-          },
-          success: function(data, textStatus ){
-            alert('Successfully updated details!');
-            $.ajax({
+            if(confirm("Do you wish to edit the information listed? If yes please click update to confirm and if no please click cancel to proceed")){
+              $.ajax({
                 type: 'POST',
                 data:{
-                    token: localStorage.getItem('token'),
-                    url: window.location.pathname,
-                    role: localStorage.getItem('role'),
-                    user: localStorage.getItem('username')
+                    username: updateusername,
+                    first_name: updatefirstname,
+                    last_name: updatelastname,
+                    email: updateemail,
+                    id: val,
+                    token: localStorage.getItem('token')
+                },
+
+                url: localStorage.getItem('url') + '/api/user/edit/'+val,
+                beforeSend: function( textStatus ) {
+                   $('#updateUser').text('');
+                   $('#updateUser').append('Adding Organization <i class="fa fa-spinner fa-pulse"></i>');
 
                 },
-                url: 'getUsers.php',
-                success: function(data, textStatus){
-                    $('#userData').empty();
-                    $('#userData').prepend(data);
-                    $('#userformdiv').empty();
-                    $('table.usersTable').DataTable(); 
+                success: function(data, textStatus ){
+                  alert('Successfully updated details!');
+                  $.ajax({
+                      type: 'POST',
+                      data:{
+                          token: localStorage.getItem('token'),
+                          url: window.location.pathname,
+                          role: localStorage.getItem('role'),
+                          user: localStorage.getItem('username')
+
+                      },
+                      url: 'getUsers.php',
+                      success: function(data, textStatus){
+                          $('#userData').empty();
+                          $('#userData').prepend(data);
+                          $('#userformdiv').empty();
+                          $('table.usersTable').DataTable(); 
+                      },
+                      error: function(xhr, textStatus, errorThrown){
+                          console.log(textStatus);
+                      }
+                  })
+                  $('#updateUser').text('Submit');
                 },
                 error: function(xhr, textStatus, errorThrown){
-                    console.log(textStatus);
+                  $('#updateUser').text('Submit');
+                   console.log(xhr);
+
                 }
-            })
-            $('#updateUser').text('Submit');
-          },
-          error: function(xhr, textStatus, errorThrown){
-            $('#updateUser').text('Submit');
-             console.log(xhr);
+            });
 
-          }
-      });
+            }
+            else{
+                return false;
+            }
 
+          
     })
 }
 
@@ -526,10 +534,10 @@ function pagination(limit){
 }
 function onLoadData(){
     
-    if(window.location.pathname=="/schepisi/cost.php"){
+    if(window.location.pathname=="/web_portal_fe/cost.php"){
         //costCentreView();
     }
-    else if(window.location.pathname=="/schepisi/dashboard.php"){
+    else if(window.location.pathname=="/web_portal_fe/dashboard.php"){
         //monthlyBilling();
     }
       $('.welcomeNote').text('Welcome back,');
