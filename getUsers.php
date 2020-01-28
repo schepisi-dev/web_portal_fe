@@ -1,16 +1,16 @@
 <?php
-include 'config.php';
+//include 'config.php';
+$link = $_POST['url'];
 $token = $_POST['token'];
-$json = file_get_contents($url.'/api/user?offset=0&limit=0&token='.$token); 
+$json = file_get_contents($link.'/api/user?offset=0&limit=0&token='.$token); 
 $data = json_decode($json,true);
-$URL = $_POST['url'];
 
 $totalUserCount = 0;
 
 $users = $data['message'];
 foreach ($users as $user)
 {
-
+echo $URL;
 	if($URL !='/web_portal_fe/users.php'){
 		if($user['user_organization_name']){
 			$totalUserCount = $totalUserCount+1;

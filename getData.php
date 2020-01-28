@@ -1,15 +1,16 @@
 <?php
 include 'config.php';
 $token = $_POST['token'];
+$URL = $_POST['url'];
 $json = file_get_contents($url.'/api/organization?token='.$token); 
 $data = json_decode($json,true);
-$URL = $_POST['url'];
+	
 $totalCount = 0;
 // change the variable name to org which is clearer.
 $org = $data['message'];
 foreach ($org as $organization)
 {
-	
+
 	if($organization['organization_deleted'] == '1'){
 		$archiveStatus = 'Archived';
 	}
@@ -17,6 +18,7 @@ foreach ($org as $organization)
 		$archiveStatus = 'Unarchive';
 	}
 	if ($URL=='/web_portal_fe/organization.php'){
+
 		echo '<tr class="tr-shadow">
 		 
 		    <td id="orgName">'.$organization['organization_name'].'</td>
@@ -49,6 +51,7 @@ foreach ($org as $organization)
 
 		}
 	}
+	//echo "<br>".$URL."<br>";
 
 }
 ?>
