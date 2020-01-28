@@ -655,7 +655,8 @@ function onLoadData(){
         type: 'POST',
         data:{
             token: localStorage.getItem('token'),
-            type: 'chargers_and_credit'
+            type: 'chargers_and_credit',
+            url: localStorage.getItem('url')
         },
 
         url: 'getTransactions.php',
@@ -675,7 +676,8 @@ function onLoadData(){
         type: 'POST',
         data:{
             token: localStorage.getItem('token'),
-            type: 'call_and_usage'
+            type: 'call_and_usage',
+            url: localStorage.getItem('url')
         },
 
         url: 'getTransactions.php',
@@ -694,7 +696,8 @@ function onLoadData(){
         type: 'POST',
         data:{
             token: localStorage.getItem('token'),
-            type: 'service_and_equipment'
+            type: 'service_and_equipment',
+            url: localStorage.getItem('url')
         },
 
         url: 'getTransactions.php',

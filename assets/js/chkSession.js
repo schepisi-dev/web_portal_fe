@@ -56,7 +56,7 @@ $(document).ready(function(){
 						localStorage.removeItem('username');
 						localStorage.removeItem('role');
 						localStorage.setItem('session','expired');
-						window.location.href= '/schepisi/';
+						window.location.href= '/web_portal_fe/';
 						
                 },autologout);
 
