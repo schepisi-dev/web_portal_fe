@@ -14716,3 +14716,7 @@ div.dataTables_wrapper div.dataTables_filter input {
     font-size: 14px;
     color: #000;
 }
+
+.nested .caret {
+    padding: 0 0 0 15px;
+}
