@@ -1,6 +1,6 @@
 <?php
-include 'config.php';
 $token = $_POST['token'];
+$url = $_POST['url'];
 $json = file_get_contents($url.'/reports/cost_centres/get/3/'. date('Y').'/3/?token='.$token); 
 $data = json_decode($json,true);
 $devices = $data['account_numbers'];

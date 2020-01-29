@@ -1,6 +1,7 @@
 <?php
-include 'config.php';
+//include 'config.php';
 $token = $_POST['token'];
+$url = $_POST['url'];
 if(!isset($_POST['click'])){
 	$_POST['click'] = '';
 }

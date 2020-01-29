@@ -1,5 +1,5 @@
 <?php
-include 'config.php';
+//include 'config.php';
 $token = $_POST['token'];
 $json = file_get_contents($url.'/reports/accounts/year?token='.$token); 
 $data = json_decode($json, true);

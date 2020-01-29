@@ -1,6 +1,6 @@
 <?php
-include 'config.php';
 $token = $_POST['token'];
+$url = $_POST['url'];
 $json = file_get_contents($url.'/api/cost_centre?token='.$token); 
 $data = json_decode($json,true);
 $devices = $data['message'];

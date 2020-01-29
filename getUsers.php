@@ -1,23 +1,16 @@
 <?php
-//include 'config.php';
 $link = $_POST['url'];
 $token = $_POST['token'];
 $json = file_get_contents($link.'/api/user?offset=0&limit=0&token='.$token); 
 $data = json_decode($json,true);
 
 $totalUserCount = 0;
+$baseURL = "http://" . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
 
 $users = $data['message'];
 foreach ($users as $user)
 {
-echo $URL;
-	if($URL !='/web_portal_fe/users.php'){
-		if($user['user_organization_name']){
-			$totalUserCount = $totalUserCount+1;
-		}
-		
-	}
-	else{
+
 		$legend = $user['user_role'];
 
 		if($legend == 'standard'){
@@ -80,8 +73,5 @@ echo $URL;
             </tr>
             ';
         }
-	
-	}
 }
-//echo $totalUserCount;
 ?>
