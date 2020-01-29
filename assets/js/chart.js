@@ -5,7 +5,8 @@ function monthlyBilling(month)
       $.ajax({
         type: 'POST',
         data:{
-            token: localStorage.getItem('token')
+            token: localStorage.getItem('token'),
+            url: localStorage.getItem('url')
         },
 
         //url: 'http://10.128.187.11/web/web_portal_be/reports/accounts/month?token='+localStorage.getItem('token'),
@@ -235,7 +236,7 @@ function monthlyBilling(month)
                     $('.anychart-credits').remove();
                 },
                 error: function(xhr, textStatus, errorThrown){
-                   console.log(errorThrown);
+                   console.log(xhr);
 
                 }
             });

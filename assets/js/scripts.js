@@ -145,7 +145,7 @@ function archiveOrg(val){
                     type: 'POST',
                     data:{
                         token: localStorage.getItem('token'),
-                        url: window.location.pathname
+                        url: localStorage.getItem('url')
                     },
 
                     url: 'getData.php',
@@ -228,7 +228,7 @@ function editOrg(val){
                     type: 'POST',
                     data:{
                         token: localStorage.getItem('token'),
-                        url: window.location.pathname
+                        url: localStorage.getItem('url')
                     },
 
                     url: 'getData.php',
@@ -325,7 +325,8 @@ function editButton(val){
                       type: 'POST',
                       data:{
                           token: localStorage.getItem('token'),
-                          url: window.location.pathname,
+                          //url: window.location.pathname,
+                          url: localStorage.getItem('url'),
                           role: localStorage.getItem('role'),
                           user: localStorage.getItem('username')
 
@@ -393,7 +394,7 @@ $("#userData").click(function() {
                 type: 'POST',
                 data:{
                     token: localStorage.getItem('token'),
-                    url: window.location.pathname
+                    url: localStorage.getItem('url')
                 },
 
                 url: 'getData.php',
@@ -479,7 +480,8 @@ $("#userData").click(function() {
                             type: 'POST',
                             data:{
                                 token: localStorage.getItem('token'),
-                                url: window.location.pathname,
+                                //url: window.location.pathname,
+                                url: localStorage.getItem('url'),
                                 role: localStorage.getItem('role'),
                                 user: localStorage.getItem('username')
 
@@ -582,14 +584,14 @@ function onLoadData(){
         type: 'POST',
         data:{
             token: localStorage.getItem('token'),
-            url: window.location.pathname
+            url: localStorage.getItem('url')
         },
 
         url: 'getData.php',
         success: function(data, textStatus ){
             //console.log(data);
             $('#data-table').append(data);
-            $('#orgCount').append(data);
+            //$('#orgCount').append(data);
             $('#drpdownOrg').append(data);
             $('#editModal #drpdownOrg').append(data);
             $('#drpdownOrg1').append(data);
@@ -613,7 +615,8 @@ function onLoadData(){
         type: 'POST',
         data:{
             token: localStorage.getItem('token'),
-            url: window.location.pathname,
+            //url: window.location.pathname,
+            url: localStorage.getItem('url'),
             role: localStorage.getItem('role'),
             user: localStorage.getItem('username')
         },
@@ -623,7 +626,7 @@ function onLoadData(){
             //console.log(data);
             var userSearch = localStorage.getItem('username');
             $('#userData').append(data);
-            $('#userCount').append(data);
+            //$('#userCount').append(data);
 
             if(localStorage.getItem('role') != 'administrator' && localStorage.getItem('role') != 'standard' ){
                 $("#userData").find( '#userName:not(:contains("' + userSearch + '"))' ).parent('tr').remove();
@@ -717,7 +720,8 @@ function onLoadData(){
         type: 'POST',
         data:{
             token: localStorage.getItem('token'),
-            type: 'all'
+            type: 'all',
+            url: localStorage.getItem('url')
         },
 
         url: 'getTransactions.php',
@@ -737,7 +741,8 @@ function onLoadData(){
     $.ajax({
         type: 'POST',
         data:{
-            token: localStorage.getItem('token')
+            token: localStorage.getItem('token'),
+            url: localStorage.getItem('url')
         },
 
         url: 'getCostCentre.php',
