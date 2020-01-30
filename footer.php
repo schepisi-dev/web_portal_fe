@@ -65,6 +65,11 @@
                 organizationControls();
                 onLoadData();
                 uploadBtn();
+                /*$('#BtnaccountsModal').click(function(){
+                    //$('#accountsModal').addClass('show');
+                    //$('body').addClass('modal-open');
+                    $('#accountsModal').modal('show');
+                })*/
 
         });
     </script>

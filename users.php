@@ -117,14 +117,14 @@ include('sidebar.php');
                                                     <div class="col col-md-6">
                                                         <label for="role"><h5>First Name</h5></label>
                                                         <div class="col col-md-12">
-                                                            <input type="text" placeholder="First Name" class="form-control" id="firstname" name="firstname">
+                                                            <input type="text" placeholder="First Name" class="form-control" id="firstname" name="firstname" required>
                                                         </div>
                                                         
                                                     </div>
                                                     <div class="col col-md-6">
                                                         <label for="role"><h5>Last Name</h5></label>
                                                         <div class="col col-md-12">
-                                                            <input type="text" placeholder="Last Name" class="form-control" id="lastname" name="lastname">
+                                                            <input type="text" placeholder="Last Name" class="form-control" id="lastname" name="lastname" required>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -132,7 +132,7 @@ include('sidebar.php');
                                                     <div class="col col-md-6">
                                                         <label for="role"><h5>Username</h5></label>
                                                             <div class="col col-md-12">
-                                                                <input type="text" placeholder="Username" class="form-control"  id="username" name="username">
+                                                                <input type="text" placeholder="Username" class="form-control"  id="username" name="username" required>
                                                             </div>
                                                     </div>
                                                     <div class="col col-md-6">

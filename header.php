@@ -81,25 +81,6 @@
                         <li class="has-sub">
                             <a class="js-arrow" href="#">
                                 <i class="fas fa-tachometer-alt"></i>Dashboard</a>
-                            <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
-                                <li>
-                                    <a href="index.html">Dashboard 1</a>
-                                </li>
-                                <li>
-                                    <a href="index2.html">Dashboard 2</a>
-                                </li>
-                                <li>
-                                    <a href="index3.html">Dashboard 3</a>
-                                </li>
-                                <li>
-                                    <a href="index4.html">Dashboard 4</a>
-                                </li>
-                            </ul>
-                        </li>
-                        
-                        <li>
-                            <a href="form.html">
-                                <i class="far fa-check-square"></i>Upload Files</a>
                         </li>
 
                     </ul>
@@ -155,7 +136,7 @@
 
                                             <div class="account-dropdown__body">
                                                 <div class="account-dropdown__item">
-                                                    <a href="#" data-toggle="modal" data-target="#accountsModal">
+                                                    <a href="#" data-toggle="modal" data-target="#accountsModal" id="BtnaccountsModal">
                                                         <i class="zmdi zmdi-account"></i>Account</a>
                                                 </div>
                                                 <!--<div class="account-dropdown__item">
@@ -196,26 +177,7 @@
                         <li class="active has-sub">
                             <a class="js-arrow" href="#">
                                 <i class="fas fa-tachometer-alt"></i>Dashboard</a>
-                            <ul class="list-unstyled navbar__sub-list js-sub-list">
-                                <li>
-                                    <a href="index.html">Dashboard 1</a>
-                                </li>
-                                <li>
-                                    <a href="index2.html">Dashboard 2</a>
-                                </li>
-                                <li>
-                                    <a href="index3.html">Dashboard 3</a>
-                                </li>
-                                <li>
-                                    <a href="index4.html">Dashboard 4</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="form.html">
-                                <i class="far fa-check-square"></i>Upload Files</a>
-                        </li>
-                        
+                        </li>                        
                         
                     </ul>
                 </nav>

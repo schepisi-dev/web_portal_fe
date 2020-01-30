@@ -97,7 +97,7 @@ include('sidebar.php');
                                     <div class="row form-group">
                                      
                                         <div class="col-12 col-md-9">
-                                            <input type="text" id="orgname" name="orgname" placeholder="Enter organization name..." class="form-control">
+                                            <input type="text" id="orgname" name="orgname" placeholder="Enter organization name..." class="form-control" maxlength="50">
                                         </div>
                                     </div>
                                 </form> 
@@ -144,7 +144,7 @@ include('sidebar.php');
                                 <i class="fa fa-dot-circle-o"></i> Update
                             </button>
                             <button type="reset" class="btn btn-danger btn-sm">
-                                <i class="fa fa-ban"></i> Clear
+                                <i class="fa fa-ban"></i> Archive
                             </button>
                         </div>
                     </div>

@@ -7,6 +7,7 @@ $data = json_decode($json,true);
 $totalCount = 0;
 // change the variable name to org which is clearer.
 $baseURL = "http://" . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
+
 $org = $data['message'];
 foreach ($org as $organization)
 {
@@ -17,7 +18,7 @@ foreach ($org as $organization)
 	else{
 		$archiveStatus = 'Unarchive';
 	}
-		echo '<tr class="tr-shadow" '.$baseURL.'>
+		echo '<tr class="tr-shadow">
 		 
 		    <td id="orgName">'.$organization['organization_name'].'</td>
 		    <td id="createdDate">'.$organization['organization_created_on'].'</td>
