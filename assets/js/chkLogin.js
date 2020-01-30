@@ -37,12 +37,14 @@ $(document).ready(function(){
                var user = data.message['username'];
                var orgName = data.message['organization_name']
 
+
               if(window.localStorage){
                 localStorage.setItem('token', token);
                 localStorage.setItem('organization', org);
                 localStorage.setItem('role', role);
                 localStorage.setItem('username', user);
                 localStorage.setItem('orgName',orgName);
+                localStorage.setItem('status', 'logged');
                   window.setTimeout(function() {
                       window.location.href = 'dashboard.php';
                   }, 3000);
@@ -53,14 +55,18 @@ $(document).ready(function(){
               txtUser.val('');
               txtPass.val('');            
               $('#submit').text('SIGN IN');
-              $('.notification').append('<div class="alert alert-danger" role="alert">Provided information was incorrect. Kindly provide the correct information to continue.</div>');
+              $('.notification').append('<div class="alert alert-danger" role="alert">Kindly provide the required information to proceed.</div>');
+              if(txtUser.val() == null){
+                txtUser.addClass("focused");
+              }
+              
              //console.info(exemp);
 
             }
         });
     });
   if(localStorage.getItem('session') == 'expired'){
-    alert('Enough inactivity was detected on your session that caused your profile to be logged-out. Please click on (the check icon) below to access the portal again.');
+    alert('Enough inactivity was detected on your session that caused your profile to be logged-out. Kindly login again to continue.');
     localStorage.removeItem('session');
   }
 });
