@@ -191,6 +191,8 @@ function editOrg(val){
               if (v.organization_id == val) {
                   $('#editOrg #orgname').val(v.organization_name);
                   $('#updateOrganization').attr('rel',v.organization_name);
+                  $('#editOrg #orgname').attr('data-attr',v.organization_id);
+                  $('#editOrg #orgname').attr('data-status',v.organization_deleted);
                   return;
               }
           });
@@ -200,7 +202,56 @@ function editOrg(val){
         }
     });
 
+$('#archiveOrg').click(function(){
+  var id = $('#editOrg #orgname').attr('data-attr');
 
+  if(confirm("Are you sure you want to archive this organization and its inner organizations? If yes click ok to confirm and if no please click cancel to proceed")){
+      $.ajax({
+          type: 'POST',
+          data:{
+              id:$('#editOrg #orgname').attr('data-attr'),
+              token: localStorage.getItem('token')
+          },
+
+          url: localStorage.getItem('url') + '/api/organization/delete/'+id+"?token="+localStorage.getItem('token'),
+          success: function(data, textStatus ){
+               alert('Archive has been successfully completed!');
+               $.ajax({
+                      type: 'POST',
+                      data:{
+                          token: localStorage.getItem('token'),
+                          url: localStorage.getItem('url')
+                      },
+
+                      url: 'getData.php',
+                      success: function(data, textStatus ){
+                         
+                          $('.orgTable').empty();
+                          $('.orgTable').append(data);
+                          $('table.orgTable').DataTable();
+                          $('.modal').removeClass('show');
+                          $('.modal').removeAttr('style');
+                          $('body').removeClass('modal-open');
+                          $('body').removeAttr('style');
+                          $('div.modal-backdrop.fade.show').remove();
+
+                      },
+                      error: function(xhr, textStatus, errorThrown){
+                         //alert('You have provided an organization name that is already existing. Please provide a new organization name, for creation to proceed.');
+                      }
+                  });
+
+          },
+          error: function(xhr, textStatus, errorThrown){
+            console.log(xhr + " " + textStatus + " " + errorThrown);
+          }
+      });
+    }
+    else{
+        return false;
+    }
+
+})
  $('#updateOrganization').click(function(){
          
     var updatetxtOrg = $('#editOrg #orgname');
@@ -235,7 +286,8 @@ function editOrg(val){
                     success: function(data, textStatus ){
                        
                         $('#data-table').empty();
-                        $('#data-table').prepend(data);
+                        $('#data-table').append(data);
+                        //$('table.orgTable').DataTable();
                         $('table.orgTable').DataTable();
                         $('.modal').removeClass('show');
                         $('.modal').removeAttr('style');
@@ -373,7 +425,11 @@ $("#userData").click(function() {
  $("#submitOrganization").click(function(){
     var txtOrg = $('#orgname');
     var org = txtOrg.val();
-    $.ajax({
+    if(txtOrg.val() == ''){
+      alert('Organization name cannot be empty!');
+    }
+    else{
+      $.ajax({
         type: 'POST',
         data:{
             name: org,
@@ -400,8 +456,8 @@ $("#userData").click(function() {
                 url: 'getData.php',
                 success: function(data, textStatus ){
                    
-                    $('#data-table').empty();
-                    $('#data-table').prepend(data);
+                    $('.orgTable').empty();
+                    $('.orgTable').prepend(data);
                     $('table.orgTable').DataTable();
                     $('.modal').removeClass('show');
                     $('.modal').removeAttr('style');
@@ -425,7 +481,9 @@ $("#userData").click(function() {
            alert('You have provided an organization name that is already existing. Please provide a new organization name, for creation to proceed.');
 
         }
-    });
+      });
+    }
+    
 
 });
 
@@ -542,8 +600,34 @@ function onLoadData(){
     else if(window.location.pathname=="/web_portal_fe/dashboard.php"){
         //monthlyBilling();
     }
-      $('.welcomeNote').text('Welcome back,');
-    
+      //$('.welcomeNote').text('Welcome back,');
+if(localStorage.getItem('status') == 'logged'){
+  alert('Welcome back, ' + localStorage.getItem('username'));
+  localStorage.removeItem('status');
+}
+var getDate = new Date();
+var currMonth = getDate.getMonth();
+$('.monthOverview').val(currMonth + 1);
+    $('input').bind('keydown', function (event) {
+            switch (event.keyCode) {
+                case 8:  // Backspace
+                case 9:  // Tab
+                case 13: // Enter
+                case 37: // Left
+                case 38: // Up
+                case 39: // Right
+                case 40: // Down
+                break;
+                default:
+                var regex = new RegExp("^[a-zA-Z0-9.,/ $@()]+$");
+                var key = event.key;
+                if (!regex.test(key)) {
+                    event.preventDefault();
+                    return false;
+                }
+                break;
+            }
+    });
     var sessionData = localStorage.getItem('role');
     var sessionURL = localStorage.getItem('url');
     if(sessionData == 'standard' || sessionData == 'basic'){
@@ -580,6 +664,29 @@ function onLoadData(){
 
         }
     });*/
+
+      $.ajax({
+        type: 'GET',
+        data:{
+            token: localStorage.getItem('token')
+        },
+
+        url: localStorage.getItem('url') + '/api/organization?token='+localStorage.getItem('token'),
+        success: function(data, textStatus ){
+            $.each(data.message, function(key, value){
+                $('#drpdownOrg').append('<option value='+value.organization_id+' id='+value.organization_id+'>'+value.organization_name+'</option>');
+                $('#drpdownOrg1').append('<option value='+value.organization_id+' id='+value.organization_id+'>'+value.organization_name+'</option>');
+                $('#drpdownOrg2').append('<option value='+value.organization_id+' id='+value.organization_id+'>'+value.organization_name+'</option>');
+                $('#drpdownOrg3').append('<option value='+value.organization_id+' id='+value.organization_id+'>'+value.organization_name+'</option>');
+            })
+            
+        },
+        error: function(xhr, textStatus, errorThrown){
+           console.log(errorThrown);
+
+        }
+      });
+
     $.ajax({
         type: 'POST',
         data:{
