@@ -49,7 +49,7 @@ include('sidebar.php');
                                     <div class="au-card-inner">
                                         <div class="title-2 m-b-40">
                                            <div class="col-lg-12">
-                                            <div class="col-lg-12">Annual Billing Overview</div>
+                                            <div class="col-lg-12"><?php echo date('Y'); ?> Billing Overview</div>
                                                <div id="barChartContainer"></div>
                                             </div>
                                         </div>

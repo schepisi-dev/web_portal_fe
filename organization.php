@@ -133,7 +133,7 @@ include('sidebar.php');
                                     <div class="row form-group">
                                      
                                         <div class="col-12 col-md-9">
-                                            <input type="text" id="orgname" name="orgname" placeholder="Enter organization name..." class="form-control">
+                                            <input type="text" id="orgname" name="orgname" placeholder="Enter organization name..." class="form-control" maxlength="50" data-attr="" data-status="">
                                         </div>
                                     </div>
                                 </form> 
@@ -143,8 +143,8 @@ include('sidebar.php');
                             <button type="submit" class="btn btn-primary btn-sm" id="updateOrganization">
                                 <i class="fa fa-dot-circle-o"></i> Update
                             </button>
-                            <button type="reset" class="btn btn-danger btn-sm">
-                                <i class="fa fa-ban"></i> Archive
+                            <button type="submit" class="btn btn-danger btn-sm" id="archiveOrg">
+                                <i class="fa fa-archive"></i> Archive
                             </button>
                         </div>
                     </div>

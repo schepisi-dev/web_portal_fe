@@ -5,7 +5,7 @@ $url = $_POST['url'];
 if(!isset($_POST['click'])){
 	$_POST['click'] = '';
 }
-$json = file_get_contents($url.'/reports/accounts/month?token='.$token); 
+$json = file_get_contents($url.'/reports/accounts/month/'.date('n').'/'.date('Y').'?token='.$token); 
 $data = json_decode($json,true);
 $callAndUsageType = $data['call_and_usage'];
 $chargersAndCreditType = $data['chargers_and_credit'];
