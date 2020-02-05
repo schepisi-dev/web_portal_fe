@@ -153,7 +153,14 @@ function archiveOrg(val){
                        
                         $('#data-table').empty();
                         $('#data-table').prepend(data);
-                        $('table.orgTable').DataTable();
+                        $('table.orgTable').DataTable({
+                                  "initComplete": function(set, json){
+
+                                        if($('.dataTable > tbody > tr').length < 10){
+                                          $('#display_paginate').remove();
+                                        }
+                                  }
+                                }); 
                         $('.modal').removeClass('show');
                         $('.modal').removeAttr('style');
                         $('body').removeClass('modal-open');
@@ -228,7 +235,14 @@ $('#archiveOrg').click(function(){
                          
                           $('.orgTable').empty();
                           $('.orgTable').append(data);
-                          $('table.orgTable').DataTable();
+                          $('table.orgTable').DataTable({
+                                  "initComplete": function(set, json){
+
+                                        if($('.dataTable > tbody > tr').length < 10){
+                                          $('#display_paginate').remove();
+                                        }
+                                  }
+                                }); 
                           $('.modal').removeClass('show');
                           $('.modal').removeAttr('style');
                           $('body').removeClass('modal-open');
@@ -288,7 +302,14 @@ $('#archiveOrg').click(function(){
                         $('#data-table').empty();
                         $('#data-table').append(data);
                         //$('table.orgTable').DataTable();
-                        $('table.orgTable').DataTable();
+                        $('table.orgTable').DataTable({
+                                  "initComplete": function(set, json){
+
+                                        if($('.dataTable > tbody > tr').length < 10){
+                                          $('#display_paginate').remove();
+                                        }
+                                  }
+                                }); 
                         $('.modal').removeClass('show');
                         $('.modal').removeAttr('style');
                         $('body').removeClass('modal-open');
@@ -388,7 +409,14 @@ function editButton(val){
                           $('#userData').empty();
                           $('#userData').prepend(data);
                           $('#userformdiv').empty();
-                          $('table.usersTable').DataTable(); 
+                          $('table.usersTable').DataTable({
+                                  "initComplete": function(set, json){
+
+                                        if($('.dataTable > tbody > tr').length < 10){
+                                          $('#display_paginate').remove();
+                                        }
+                                  }
+                                });  
                       },
                       error: function(xhr, textStatus, errorThrown){
                           console.log(textStatus);
@@ -458,7 +486,14 @@ $("#userData").click(function() {
                    
                     $('.orgTable').empty();
                     $('.orgTable').prepend(data);
-                    $('table.orgTable').DataTable();
+                    $('table.orgTable').DataTable({
+                                  "initComplete": function(set, json){
+
+                                        if($('.dataTable > tbody > tr').length < 10){
+                                          $('#display_paginate').remove();
+                                        }
+                                  }
+                                }); 
                     $('.modal').removeClass('show');
                     $('.modal').removeAttr('style');
                     $('body').removeClass('modal-open');
@@ -549,7 +584,14 @@ $("#userData").click(function() {
                                 $('#userData').empty();
                                 $('#userData').prepend(data);
                                 $('#userformdiv').empty();
-                                $('table.usersTable').DataTable(); 
+                                $('table.usersTable').DataTable({
+                                  "initComplete": function(set, json){
+
+                                        if($('.dataTable > tbody > tr').length < 10){
+                                          $('#display_paginate').remove();
+                                        }
+                                  }
+                                }); 
                             },
                             error: function(xhr, textStatus, errorThrown){
                                 console.log(textStatus);
@@ -605,6 +647,7 @@ if(localStorage.getItem('status') == 'logged'){
   alert('Welcome back, ' + localStorage.getItem('username'));
   localStorage.removeItem('status');
 }
+
 var getDate = new Date();
 var currMonth = getDate.getMonth();
 $('.monthOverview').val(currMonth + 1);
@@ -708,7 +751,14 @@ $('.monthOverview').val(currMonth + 1);
                 var filter = localStorage.getItem('orgName');
             $("#data-table").find( '#orgName:not(:contains("' + filter + '"))' ).parent('tr').remove();
             }
-            $('table.orgTable').DataTable(); 
+            $('table.orgTable').DataTable({
+                                  "initComplete": function(set, json){
+
+                                        if($('.dataTable > tbody > tr').length < 10){
+                                          $('#display_paginate').remove();
+                                        }
+                                  }
+                                }); 
             
         },
         error: function(xhr, textStatus, errorThrown){
@@ -750,7 +800,14 @@ $('.monthOverview').val(currMonth + 1);
               
             }
             else{
-              $('table.usersTable').DataTable(); 
+              $('table.usersTable').DataTable({
+                                  "initComplete": function(set, json){
+
+                                        if($('.dataTable > tbody > tr').length < 10){
+                                          $('#display_paginate').remove();
+                                        }
+                                  }
+                                });  
             }
             //console.log(userResult);
             
@@ -772,7 +829,14 @@ $('.monthOverview').val(currMonth + 1);
         url: 'getTransactions.php',
         success: function(data, textStatus ){
             $('#chargers_and_credit-table').append(data);
-            $('table.chargersTable').DataTable();
+            $('table.chargersTable').DataTable({
+                                  "initComplete": function(set, json){
+
+                                        if($('.dataTable > tbody > tr').length < 10){
+                                          $('#display_paginate').remove();
+                                        }
+                                  }
+                                }); 
             //console.log($('#chargers_and_credit-table > tr').length);
             
         },
@@ -794,7 +858,14 @@ $('.monthOverview').val(currMonth + 1);
         success: function(data, textStatus ){
             //console.log(data);
             $('#call-and-usage-table').append(data);
-            $('table.usageTable').DataTable();
+            $('table.usageTable').DataTable({
+                                  "initComplete": function(set, json){
+
+                                        if($('.dataTable > tbody > tr').length < 10){
+                                          $('#display_paginate').remove();
+                                        }
+                                  }
+                                }); 
         },
         error: function(xhr, textStatus, errorThrown){
            console.log(errorThrown);
@@ -814,7 +885,14 @@ $('.monthOverview').val(currMonth + 1);
         success: function(data, textStatus ){
             //console.log(data);
             $('#service-and-equipment-table').append(data);
-            $('table.serviceTable').DataTable();
+            $('table.serviceTable').DataTable({
+                                  "initComplete": function(set, json){
+
+                                        if($('.dataTable > tbody > tr').length < 10){
+                                          $('#display_paginate').remove();
+                                        }
+                                  }
+                                }); 
 
         },
         error: function(xhr, textStatus, errorThrown){
@@ -837,7 +915,14 @@ $('.monthOverview').val(currMonth + 1);
             //console.log(data);      
                
             $('#allTransaction').append(data);
-            $('table.allTransactionTable').DataTable(); 
+            $('table.allTransactionTable').DataTable({
+                                  "initComplete": function(set, json){
+
+                                        if($('.dataTable > tbody > tr').length < 10){
+                                          $('#display_paginate').remove();
+                                        }
+                                  }
+                                });  
 
         },
         error: function(xhr, textStatus, errorThrown){
@@ -902,7 +987,14 @@ $('.monthOverview').val(currMonth + 1);
         url: 'historyData.php',
         success: function(data, textStatus ){ 
             $('#file_upload_history').append(data);
-            $('table.historyTable').DataTable(); 
+            $('table.historyTable').DataTable({
+                                  "initComplete": function(set, json){
+
+                                        if($('.dataTable > tbody > tr').length < 10){
+                                          $('#display_paginate').remove();
+                                        }
+                                  }
+                                }); 
         },
         error: function(error ,xml){
            console.log(error);
@@ -1135,7 +1227,9 @@ $.ajax({
     });
     $('#accounts').click(function(){
     })
-}           
+
+
+}         
 function uploadBtn(){
 
 $('#uploadChargers').click(function(){
@@ -1284,7 +1378,14 @@ $('#uploadChargers').click(function(){
                                     $('#service-and-equipment-table').empty();
                                     $('#service-and-equipment-table').prepend(data);
                                     $('#uploadService').text('Upload');
-                                    $('table.serviceTable').DataTable(); 
+                                    $('table.serviceTable').DataTable({
+                                  "initComplete": function(set, json){
+
+                                        if($('.dataTable > tbody > tr').length < 10){
+                                          $('#display_paginate').remove();
+                                        }
+                                  }
+                                }); 
                                 },
                                 error: function(xhr, textStatus, errorThrown){
                                    $('#uploadService').text('Upload');
