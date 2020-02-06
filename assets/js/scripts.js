@@ -300,7 +300,7 @@ $('#archiveOrg').click(function(){
                     success: function(data, textStatus ){
                        
                         $('#data-table').empty();
-                        $('#data-table').append(data);
+                        $('#data-table').prepend(data);
                         //$('table.orgTable').DataTable();
                         $('table.orgTable').DataTable({
                                   "initComplete": function(set, json){
@@ -450,6 +450,15 @@ $("#userData").click(function() {
 });
 
 
+$('.close').click(function(){
+  if(confirm("Closing the window will clear all the fields you have entered.")){
+    $('#userform').find('input').val('');
+    $('#userform').find('select').val('0');
+  }
+  else{
+    return false;
+  }
+})
  $("#submitOrganization").click(function(){
     var txtOrg = $('#orgname');
     var org = txtOrg.val();
