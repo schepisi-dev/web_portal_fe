@@ -153,14 +153,10 @@ function archiveOrg(val){
                        
                         $('#data-table').empty();
                         $('#data-table').prepend(data);
-                        $('table.orgTable').DataTable({
-                                  "initComplete": function(set, json){
-
-                                        if($('.dataTable > tbody > tr').length < 10){
-                                          $('#display_paginate').remove();
-                                        }
-                                  }
-                                }); 
+                        $('table.orgTable').DataTable(); 
+                        if($('.dataTable > tbody > tr').length < 10){
+                          $('#display_paginate').remove();
+                        }
                         $('.modal').removeClass('show');
                         $('.modal').removeAttr('style');
                         $('body').removeClass('modal-open');
@@ -185,6 +181,60 @@ function archiveOrg(val){
 
 
 }
+
+/*function archiveUser(val){
+
+ if(confirm("Are you sure you want to archive this user and delete on their assigned organization? If yes click ok to confirm and if no please click cancel to proceed")){
+    $.ajax({
+        type: 'POST',
+        data:{
+            id:val,
+            token: localStorage.getItem('token')
+        },
+
+        url: localStorage.getItem('url') + '/api/user/delete/'+val+"?token="+localStorage.getItem('token'),
+        success: function(data, textStatus ){
+             alert('Archive has been successfully completed!');
+             $.ajax({
+                    type: 'POST',
+                    data:{
+                        token: localStorage.getItem('token'),
+                        url: localStorage.getItem('url')
+                    },
+
+                    url: 'getUsers.php',
+                    success: function(data, textStatus ){
+                       
+                        $('#userData').empty();
+                        $('#userData').prepend(data);
+                        $('table.usersTable').DataTable(); 
+                        if($('.dataTable > tbody > tr').length < 10){
+                          $('#display_paginate').remove();
+                        }
+                        $('.modal').removeClass('show');
+                        $('.modal').removeAttr('style');
+                        $('body').removeClass('modal-open');
+                        $('body').removeAttr('style');
+                        $('div.modal-backdrop.fade.show').remove();
+
+                    },
+                    error: function(xhr, textStatus, errorThrown){
+                       //alert('You have provided an organization name that is already existing. Please provide a new organization name, for creation to proceed.');
+                    }
+                });
+
+        },
+        error: function(xhr, textStatus, errorThrown){
+          console.log(xhr + " " + textStatus + " " + errorThrown);
+        }
+    });
+  }
+  else{
+      return false;
+  }
+
+
+}*/
 function editOrg(val){
  $.ajax({
         type: 'GET',
@@ -235,14 +285,11 @@ $('#archiveOrg').click(function(){
                          
                           $('.orgTable').empty();
                           $('.orgTable').append(data);
-                          $('table.orgTable').DataTable({
-                                  "initComplete": function(set, json){
+                          $('table.orgTable').DataTable();
 
-                                        if($('.dataTable > tbody > tr').length < 10){
-                                          $('#display_paginate').remove();
-                                        }
-                                  }
-                                }); 
+                            if($('.dataTable > tbody > tr').length < 10){
+                              $('#display_paginate').remove();
+                            } 
                           $('.modal').removeClass('show');
                           $('.modal').removeAttr('style');
                           $('body').removeClass('modal-open');
@@ -302,14 +349,10 @@ $('#archiveOrg').click(function(){
                         $('#data-table').empty();
                         $('#data-table').prepend(data);
                         //$('table.orgTable').DataTable();
-                        $('table.orgTable').DataTable({
-                                  "initComplete": function(set, json){
-
-                                        if($('.dataTable > tbody > tr').length < 10){
-                                          $('#display_paginate').remove();
-                                        }
-                                  }
-                                }); 
+                        $('table.orgTable').DataTable();
+                        if($('.dataTable > tbody > tr').length < 10){
+                          $('#display_paginate').remove();
+                        } 
                         $('.modal').removeClass('show');
                         $('.modal').removeAttr('style');
                         $('body').removeClass('modal-open');
@@ -409,14 +452,11 @@ function editButton(val){
                           $('#userData').empty();
                           $('#userData').prepend(data);
                           $('#userformdiv').empty();
-                          $('table.usersTable').DataTable({
-                                  "initComplete": function(set, json){
+                          $('table.usersTable').DataTable();
 
-                                        if($('.dataTable > tbody > tr').length < 10){
-                                          $('#display_paginate').remove();
-                                        }
-                                  }
-                                });  
+                          if($('.dataTable > tbody > tr').length < 10){
+                            $('#display_paginate').remove();
+                          }  
                       },
                       error: function(xhr, textStatus, errorThrown){
                           console.log(textStatus);
@@ -493,16 +533,12 @@ $('.close').click(function(){
                 url: 'getData.php',
                 success: function(data, textStatus ){
                    
-                    $('.orgTable').empty();
-                    $('.orgTable').prepend(data);
-                    $('table.orgTable').DataTable({
-                                  "initComplete": function(set, json){
-
-                                        if($('.dataTable > tbody > tr').length < 10){
-                                          $('#display_paginate').remove();
-                                        }
-                                  }
-                                }); 
+                    $('#data-table').empty();
+                    $('#data-table').prepend(data);
+                    $('table.orgTable').DataTable();
+                     if($('.dataTable > tbody > tr').length < 10){
+                        $('#display_paginate').remove();
+                      } 
                     $('.modal').removeClass('show');
                     $('.modal').removeAttr('style');
                     $('body').removeClass('modal-open');
@@ -593,14 +629,10 @@ $('.close').click(function(){
                                 $('#userData').empty();
                                 $('#userData').prepend(data);
                                 $('#userformdiv').empty();
-                                $('table.usersTable').DataTable({
-                                  "initComplete": function(set, json){
-
-                                        if($('.dataTable > tbody > tr').length < 10){
-                                          $('#display_paginate').remove();
-                                        }
+                                $('table.usersTable').DataTable(); 
+                                  if($('.dataTable > tbody > tr').length < 10){
+                                    $('#display_paginate').remove();
                                   }
-                                }); 
                             },
                             error: function(xhr, textStatus, errorThrown){
                                 console.log(textStatus);
@@ -760,14 +792,10 @@ $('.monthOverview').val(currMonth + 1);
                 var filter = localStorage.getItem('orgName');
             $("#data-table").find( '#orgName:not(:contains("' + filter + '"))' ).parent('tr').remove();
             }
-            $('table.orgTable').DataTable({
-                                  "initComplete": function(set, json){
-
-                                        if($('.dataTable > tbody > tr').length < 10){
-                                          $('#display_paginate').remove();
-                                        }
-                                  }
-                                }); 
+            $('table.orgTable').DataTable(); 
+            if($('.dataTable > tbody > tr').length < 10){
+              $('#display_paginate').remove();
+            }
             
         },
         error: function(xhr, textStatus, errorThrown){
@@ -809,14 +837,10 @@ $('.monthOverview').val(currMonth + 1);
               
             }
             else{
-              $('table.usersTable').DataTable({
-                                  "initComplete": function(set, json){
-
-                                        if($('.dataTable > tbody > tr').length < 10){
-                                          $('#display_paginate').remove();
-                                        }
-                                  }
-                                });  
+              $('table.usersTable').DataTable();  
+              if($('.dataTable > tbody > tr').length < 10){
+                $('#display_paginate').remove();
+              }
             }
             //console.log(userResult);
             
@@ -838,14 +862,10 @@ $('.monthOverview').val(currMonth + 1);
         url: 'getTransactions.php',
         success: function(data, textStatus ){
             $('#chargers_and_credit-table').append(data);
-            $('table.chargersTable').DataTable({
-                                  "initComplete": function(set, json){
-
-                                        if($('.dataTable > tbody > tr').length < 10){
-                                          $('#display_paginate').remove();
-                                        }
-                                  }
-                                }); 
+            $('table.chargersTable').DataTable(); 
+            if($('.dataTable > tbody > tr').length < 10){
+              $('#display_paginate').remove();
+            }
             //console.log($('#chargers_and_credit-table > tr').length);
             
         },
@@ -867,14 +887,10 @@ $('.monthOverview').val(currMonth + 1);
         success: function(data, textStatus ){
             //console.log(data);
             $('#call-and-usage-table').append(data);
-            $('table.usageTable').DataTable({
-                                  "initComplete": function(set, json){
-
-                                        if($('.dataTable > tbody > tr').length < 10){
-                                          $('#display_paginate').remove();
-                                        }
-                                  }
-                                }); 
+            $('table.usageTable').DataTable();
+            if($('.dataTable > tbody > tr').length < 10){
+              $('#display_paginate').remove();
+            }
         },
         error: function(xhr, textStatus, errorThrown){
            console.log(errorThrown);
@@ -894,14 +910,11 @@ $('.monthOverview').val(currMonth + 1);
         success: function(data, textStatus ){
             //console.log(data);
             $('#service-and-equipment-table').append(data);
-            $('table.serviceTable').DataTable({
-                                  "initComplete": function(set, json){
+            $('table.serviceTable').DataTable(); 
 
-                                        if($('.dataTable > tbody > tr').length < 10){
-                                          $('#display_paginate').remove();
-                                        }
-                                  }
-                                }); 
+            if($('.dataTable > tbody > tr').length < 10){
+              $('#display_paginate').remove();
+            }
 
         },
         error: function(xhr, textStatus, errorThrown){
@@ -924,14 +937,11 @@ $('.monthOverview').val(currMonth + 1);
             //console.log(data);      
                
             $('#allTransaction').append(data);
-            $('table.allTransactionTable').DataTable({
-                                  "initComplete": function(set, json){
+            $('table.allTransactionTable').DataTable(); 
 
-                                        if($('.dataTable > tbody > tr').length < 10){
-                                          $('#display_paginate').remove();
-                                        }
-                                  }
-                                });  
+          if($('.dataTable > tbody > tr').length < 10){
+            $('#display_paginate').remove();
+          } 
 
         },
         error: function(xhr, textStatus, errorThrown){
@@ -974,7 +984,8 @@ $('.monthOverview').val(currMonth + 1);
     $.ajax({
         type: 'POST',
         data:{
-            token: localStorage.getItem('token')
+            token: localStorage.getItem('token'),
+            url: localStorage.getItem('url')
         },
 
         url: 'costCentreReport.php',
@@ -996,14 +1007,10 @@ $('.monthOverview').val(currMonth + 1);
         url: 'historyData.php',
         success: function(data, textStatus ){ 
             $('#file_upload_history').append(data);
-            $('table.historyTable').DataTable({
-                                  "initComplete": function(set, json){
-
-                                        if($('.dataTable > tbody > tr').length < 10){
-                                          $('#display_paginate').remove();
-                                        }
-                                  }
-                                }); 
+            $('table.historyTable').DataTable(); 
+          if($('.dataTable > tbody > tr').length < 10){
+            $('#display_paginate').remove();
+          }
         },
         error: function(error ,xml){
            console.log(error);
