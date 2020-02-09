@@ -491,7 +491,8 @@ $("#userData").click(function() {
 
 
 $('.close').click(function(){
-  if(confirm("Closing the window will clear all the fields you have entered.")){
+
+  if(confirm("Clicking this closes this form and also clears all of the provided information. Please click ok to confirm, if not please click cancel to continue editing.")){
     $('#userform').find('input').val('');
     $('#userform').find('select').val('0');
   }
