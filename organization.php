@@ -98,6 +98,7 @@ include('sidebar.php');
                                      
                                         <div class="col-12 col-md-9">
                                             <input type="text" id="orgname" name="orgname" placeholder="Enter organization name..." class="form-control" maxlength="50">
+                                            <label>Organization name should not exceed to 50 characters</label>
                                         </div>
                                     </div>
                                 </form> 
@@ -134,6 +135,7 @@ include('sidebar.php');
                                      
                                         <div class="col-12 col-md-9">
                                             <input type="text" id="orgname" name="orgname" placeholder="Enter organization name..." class="form-control" maxlength="50" data-attr="" data-status="">
+                                            <label>Organization name should not exceed to 50 characters</label>
                                         </div>
                                     </div>
                                 </form> 
