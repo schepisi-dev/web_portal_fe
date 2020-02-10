@@ -25,19 +25,18 @@ foreach ($org as $organization)
 		    <td id="archiveStatus">'.$archiveStatus.'</td>
 		    <td id="archivedDate">'.$organization['organization_deleted_on'].'</td>
 		    <td id="action">
-	            <div class="table-data__info table-data-feature">
-	            <div class="col-md-5"><button type="button" class="btn btn-primary btn-block" id="editOrganization" rel="'.$organization['organization_id'].'" onclick=editOrg("'.$organization['organization_id'].'"); data-toggle="modal" data-target="#editOrg">Edit</button></div>';
+	            <div class="table-data__info table-data-feature">';
+	            
 	            if($archiveStatus == 'Archived'){
 
 	            }
 	            else{
 	            	echo'
-	            <div class="col-md-5"><button type="button" class="btn btn-primary btn-block" id="archiveOrganization" rel="'.$organization['organization_id'].'" onclick=archiveOrg("'.$organization['organization_id'].'");>Archive</button></div>    
-	                
-	            </div>';
+	            	<div class="col-md-6"><button type="button" class="btn btn-primary btn-block" id="editOrganization" rel="'.$organization['organization_id'].'" onclick=editOrg("'.$organization['organization_id'].'"); data-toggle="modal" data-target="#editOrg">Edit</button></div>
+	            <div class="col-md-6"><button type="button" class="btn btn-primary btn-block" id="archiveOrganization" rel="'.$organization['organization_id'].'" onclick=archiveOrg("'.$organization['organization_id'].'");>Archive</button></div>';
 	            }
 	           echo ' 
-            </td>
+            </div></td>
 		</tr>';
 
 }

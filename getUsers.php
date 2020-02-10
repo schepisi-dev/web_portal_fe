@@ -68,8 +68,6 @@ foreach ($users as $user)
                 <td id="action">
                     <div class="table-data__info table-data-feature">
                         <div class="col-md-12"><button type="button" class="btn btn-primary btn-block" id="editUser" rel="'.$user['user_username'].'" onclick=editButton("'.$user['user_id'].'"); data-toggle="modal" data-target="#editModal">Edit</button></div>
-
-                        
                     </div>
                 </td>
             </tr>

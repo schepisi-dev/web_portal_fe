@@ -1,5 +1,5 @@
 <!-- modal static -->
-<div class="modal fade" id="accountsModal" tabindex="-1" role="dialog" aria-labelledby="accountsModalLabel" aria-hidden="true"
+<!--<div class="modal fade" id="accountsModal" tabindex="-1" role="dialog" aria-labelledby="accountsModalLabel" aria-hidden="true"
  data-backdrop="static">
     <div class="modal-dialog modal-sm" role="document">
         <div class="modal-content">
@@ -20,7 +20,7 @@
         </div>
     </div>
 </div>
-
+-->
 <!-- end modal static -->
 
     <!-- Jquery JS-->

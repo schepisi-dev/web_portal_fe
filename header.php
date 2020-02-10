@@ -136,7 +136,7 @@
 
                                             <div class="account-dropdown__body">
                                                 <div class="account-dropdown__item">
-                                                    <a href="#" data-toggle="modal" data-target="#accountsModal" id="BtnaccountsModal">
+                                                    <a href="#" id="BtnaccountsModal">
                                                         <i class="zmdi zmdi-account"></i>Account</a>
                                                 </div>
                                                 <!--<div class="account-dropdown__item">
