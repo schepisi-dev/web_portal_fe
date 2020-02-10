@@ -182,7 +182,7 @@ function archiveOrg(val){
 
 }
 
-/*function archiveUser(val){
+function archiveUser(val){
 
  if(confirm("Are you sure you want to archive this user and delete on their assigned organization? If yes click ok to confirm and if no please click cancel to proceed")){
     $.ajax({
@@ -234,7 +234,7 @@ function archiveOrg(val){
   }
 
 
-}*/
+}
 function editOrg(val){
  $.ajax({
         type: 'GET',
@@ -334,36 +334,35 @@ $('#archiveOrg').click(function(){
 
             },
             success: function(data, textStatus ){
-                 alert("Successfully updated organization!");
+                alert("Successfully updated organization!");
+                  $.ajax({
+                      type: 'POST',
+                      data:{
+                          token: localStorage.getItem('token'),
+                          url: localStorage.getItem('url')
+                      },
 
-                $.ajax({
-                    type: 'POST',
-                    data:{
-                        token: localStorage.getItem('token'),
-                        url: localStorage.getItem('url')
-                    },
+                      url: 'getData.php',
+                      success: function(data, textStatus ){
+                         
+                          $('#data-table').empty();
+                          $('#data-table').prepend(data);
+                          //$('table.orgTable').DataTable();
+                          $('table.orgTable').DataTable();
+                          if($('.dataTable > tbody > tr').length < 10){
+                            $('#display_paginate').remove();
+                          } 
+                          $('.modal').removeClass('show');
+                          $('.modal').removeAttr('style');
+                          $('body').removeClass('modal-open');
+                          $('body').removeAttr('style');
+                          $('div.modal-backdrop.fade.show').remove();
 
-                    url: 'getData.php',
-                    success: function(data, textStatus ){
-                       
-                        $('#data-table').empty();
-                        $('#data-table').prepend(data);
-                        //$('table.orgTable').DataTable();
-                        $('table.orgTable').DataTable();
-                        if($('.dataTable > tbody > tr').length < 10){
-                          $('#display_paginate').remove();
-                        } 
-                        $('.modal').removeClass('show');
-                        $('.modal').removeAttr('style');
-                        $('body').removeClass('modal-open');
-                        $('body').removeAttr('style');
-                        $('div.modal-backdrop.fade.show').remove();
-
-                    },
-                    error: function(xhr, textStatus, errorThrown){
-                       //alert('You have provided an organization name that is already existing. Please provide a new organization name, for creation to proceed.');
-                    }
-                });
+                      },
+                      error: function(xhr, textStatus, errorThrown){
+                         //alert('You have provided an organization name that is already existing. Please provide a new organization name, for creation to proceed.');
+                      }
+                  });
                 $('#updateOrganization').text('Submit');
                 $('#editOrg #orgname').val('');
 
@@ -499,6 +498,13 @@ $('.close').click(function(){
   else{
     return false;
   }
+})
+
+$('#BtnaccountsModal').click(function(){
+  $('#accountsModal').show();
+$('body').append('<div class="modal fade" id="accountsModal" tabindex="-1" role="dialog" aria-labelledby="accountsModalLabel" aria-hidden="true" data-backdrop="static"><div class="modal-dialog modal-sm" role="document"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="staticModalLabel">Static Modal</h5><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button></div><div class="modal-body"><p>This  static modal, backdrop click will not close it.</p></div><div class="modal-footer"><button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button></div></div></div><div>');
+
+
 })
  $("#submitOrganization").click(function(){
     var txtOrg = $('#orgname');

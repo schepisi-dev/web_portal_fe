@@ -4,7 +4,10 @@ function logout(){
 	localStorage.removeItem('token');
 	localStorage.removeItem('username');
 	localStorage.removeItem('role');
-	window.location.href = '/web_portal_fe/';
+    var url = window.location.pathname;
+    var t = url;
+    t = t.substr(0, t.lastIndexOf("/"));
+	window.location.href = t;
 }
 
 $(document).ready(function(){
@@ -12,6 +15,10 @@ $(document).ready(function(){
 	var sesToken = localStorage.getItem('token');
 	var sesRole = localStorage.getItem('role');
 	var orgname = localStorage.getItem('orgName');
+    var url = window.location.pathname;
+    var t = url;
+    t = t.substr(0, t.lastIndexOf("/"));
+
 	if(sesUser != null && sesToken != null && sesRole != null && orgname != null){
 		$('#userName').html(sesUser);
 		//console.log(localStorage.token);
@@ -20,7 +27,7 @@ $(document).ready(function(){
 
 	}
 	else{
-		window.location.href= "/web_portal_fe/";
+		window.location.href= t;
 		//alert('error')
 	}
 	
@@ -56,7 +63,10 @@ $(document).ready(function(){
 						localStorage.removeItem('username');
 						localStorage.removeItem('role');
 						localStorage.setItem('session','expired');
-						window.location.href= '/web_portal_fe/';
+                        var url = window.location.pathname;
+    var t = url;
+    t = t.substr(0, t.lastIndexOf("/"));
+						window.location.href= t;
 						
                 },autologout);
 
