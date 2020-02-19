@@ -259,6 +259,8 @@ function editOrg(val){
         }
     });
 
+
+
 $('#archiveOrg').click(function(){
   var id = $('#editOrg #orgname').attr('data-attr');
 
@@ -335,6 +337,27 @@ $('#archiveOrg').click(function(){
             },
             success: function(data, textStatus ){
                 alert("Successfully updated organization!");
+                $('#data-table').empty();
+                /*var dataTable = $('#display').DataTable();
+                $('#data-table').empty();   
+                $.getJSON( localStorage.getItem('url')+"/api/organization?token="+localStorage.getItem('token') + "", function( data ) {
+                  var items = [];
+
+                  $.each( data, function( key, val ) {
+                    //items.push( "<li id='" + key + "'>" + val + "</li>" );
+                    
+                    $.each(val, function(disp, orgValue){
+                        
+                        $('#data-table').prepend('<tr class="tr-shadow"><td id="orgName">'+orgValue.organization_name+'</td><td id="createdDate">'+orgValue.organization_created_on+'</td><td id="archiveStatus">'+orgValue.organization_deleted+'</td><td id="action"><div class="table-data__info table-data-feature"><div class="col-md-6"><button type="button" class="btn btn-primary btn-block" id="editOrganization" rel="'+orgValue.organization_id+'" onclick="'+orgValue.organization_id+'">Edit</button></div><div class="col-md-6"><button>Archive</button></div></div></td></tr>');
+                          dataTable.draw();
+                       
+                       
+                    })
+                    
+                  });
+                  
+                });*/
+
                   $.ajax({
                       type: 'POST',
                       data:{
@@ -345,9 +368,8 @@ $('#archiveOrg').click(function(){
                       url: 'getData.php',
                       success: function(data, textStatus ){
                          
-                          $('#data-table').empty();
+                          
                           $('#data-table').prepend(data);
-                          //$('table.orgTable').DataTable();
                           $('table.orgTable').DataTable();
                           if($('.dataTable > tbody > tr').length < 10){
                             $('#display_paginate').remove();
@@ -695,7 +717,20 @@ if(localStorage.getItem('status') == 'logged'){
   alert('Welcome back, ' + localStorage.getItem('username'));
   localStorage.removeItem('status');
 }
-
+ $.getJSON( localStorage.getItem('url')+"/api/organization/archived?token="+localStorage.getItem('token') + "", function( data ) {
+      $.each( data, function( key, val ) {
+        //items.push( "<li id='" + key + "'>" + val + "</li>" );
+        
+        $.each(val, function(disp, orgValue){
+            
+            $('#archivedOrganization').prepend('<tr class="tr-shadow"><td id="orgName">'+orgValue.organization_name+'</td><td id="archiveStatus">'+orgValue.organization_deleted_on+'</td></tr>');
+           $('table.archivedorgTable').DataTable();
+           
+        })
+        
+      });
+      
+    });
 var getDate = new Date();
 var currMonth = getDate.getMonth();
 $('.monthOverview').val(currMonth + 1);
