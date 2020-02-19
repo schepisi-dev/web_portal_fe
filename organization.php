@@ -18,6 +18,9 @@ include('sidebar.php');
                                         <button type="button" class="btn btn-secondary mb-1 au-btn-icon au-btn au-btn--green au-btn--small" data-toggle="modal" data-target="#staticModal">
                                            <i class="zmdi zmdi-plus"></i>create an organization
                                         </button>
+                                        <button type="button" class="btn btn-secondary mb-1 au-btn-icon au-btn au-btn--blue au-btn--small" data-toggle="modal" data-target="#archivedModal">
+                                            View Archived Organizations
+                                        </button>
                                     </div>
                                 </div>
                                 <div class="row">
@@ -33,8 +36,6 @@ include('sidebar.php');
                                                             <tr>
                                                                 <th>ORGANIZATION NAME</th>
                                                                 <th>CREATED DATE</th>
-                                                                <th>ARCHIVED</th>
-                                                                <th>ARCHIVED DATE</th>
                                                                 <th>ACTION</th>
                                                             </tr>
                                                             </thead>
@@ -45,8 +46,6 @@ include('sidebar.php');
                                                             <tr>
                                                                 <th>ORGANIZATION NAME</th>
                                                                 <th>CREATED DATE</th>
-                                                                <th>ARCHIVED</th>
-                                                                <th>ARCHIVED DATE</th>
                                                                 <th>ACTION</th>
                                                             </tr>
                                                             </tfoot>
@@ -148,6 +147,46 @@ include('sidebar.php');
                             <button type="submit" class="btn btn-danger btn-sm" id="archiveOrg">
                                 <i class="fa fa-archive"></i> Archive
                             </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- end modal static -->
+
+            <!-- modal static -->
+            <div class="modal fade" id="archivedModal" tabindex="-1" role="dialog" aria-labelledby="staticModalLabel" aria-hidden="true"
+             data-backdrop="static">
+                <div class="modal-dialog modal-lg" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="staticModalLabel">Archived Organizations</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <p> 
+                                <div class="table-responsive m-b-40 tableFixHead archivedorganizationTable">
+                                    <table id="archivedorgTable" class="display archivedorgTable">
+                                        <thead>
+                                        <tr>
+                                            <th>ORGANIZATION NAME</th>
+                                            <th>ARCHIVED DATE</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody id="archivedOrganization">
+                                                       
+                                        </tbody>
+                                        <tfoot>
+                                        <tr>
+                                            <th>ORGANIZATION NAME</th>
+                                            <th>ARCHIVED DATE</th>
+                                        </tr>
+                                        </tfoot>
+                                  </table>
+
+                                </div>
+                            </p>
                         </div>
                     </div>
                 </div>

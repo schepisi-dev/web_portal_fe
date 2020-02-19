@@ -11,30 +11,16 @@ $baseURL = "http://" . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
 $org = $data['message'];
 foreach ($org as $organization)
 {
-
-	if($organization['organization_deleted'] == '1'){
-		$archiveStatus = 'Archived';
-	}
-	else{
-		$archiveStatus = 'Unarchive';
-	}
 		echo '<tr class="tr-shadow">
 		 
 		    <td id="orgName">'.$organization['organization_name'].'</td>
 		    <td id="createdDate">'.$organization['organization_created_on'].'</td>
-		    <td id="archiveStatus">'.$archiveStatus.'</td>
-		    <td id="archivedDate">'.$organization['organization_deleted_on'].'</td>
 		    <td id="action">
-	            <div class="table-data__info table-data-feature">';
-	            
-	            if($archiveStatus == 'Archived'){
-
-	            }
-	            else{
-	            	echo'
-	            	<div class="col-md-6"><button type="button" class="btn btn-primary btn-block" id="editOrganization" rel="'.$organization['organization_id'].'" onclick=editOrg("'.$organization['organization_id'].'"); data-toggle="modal" data-target="#editOrg">Edit</button></div>
+	            <div class="table-data__info table-data-feature">
+	            <div class="col-md-6"><button type="button" class="btn btn-primary btn-block" id="editOrganization" rel="'.$organization['organization_id'].'" onclick=editOrg("'.$organization['organization_id'].'"); data-toggle="modal" data-target="#editOrg">Edit</button></div>
 	            <div class="col-md-6"><button type="button" class="btn btn-primary btn-block" id="archiveOrganization" rel="'.$organization['organization_id'].'" onclick=archiveOrg("'.$organization['organization_id'].'");>Archive</button></div>';
-	            }
+	            
+	            
 	           echo ' 
             </div></td>
 		</tr>';
