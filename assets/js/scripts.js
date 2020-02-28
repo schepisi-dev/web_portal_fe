@@ -338,8 +338,7 @@ $('#archiveOrg').click(function(){
             success: function(data, textStatus ){
                 alert("Successfully updated organization!");
                 $('#data-table').empty();
-                /*var dataTable = $('#display').DataTable();
-                $('#data-table').empty();   
+                var dataTable = $('#display').DataTable();  
                 $.getJSON( localStorage.getItem('url')+"/api/organization?token="+localStorage.getItem('token') + "", function( data ) {
                   var items = [];
 
@@ -356,9 +355,9 @@ $('#archiveOrg').click(function(){
                     
                   });
                   
-                });*/
+                });
 
-                  $.ajax({
+                  /*$.ajax({
                       type: 'POST',
                       data:{
                           token: localStorage.getItem('token'),
@@ -384,7 +383,7 @@ $('#archiveOrg').click(function(){
                       error: function(xhr, textStatus, errorThrown){
                          //alert('You have provided an organization name that is already existing. Please provide a new organization name, for creation to proceed.');
                       }
-                  });
+                  });*/
                 $('#updateOrganization').text('Submit');
                 $('#editOrg #orgname').val('');
 
@@ -712,7 +711,12 @@ function onLoadData(){
     else if(window.location.pathname=="/web_portal_fe/dashboard.php"){
         //monthlyBilling();
     }
-      //$('.welcomeNote').text('Welcome back,');
+/*$('#sidebar').find('a').each(function(){
+    var $this = $(this);       
+    var _href = $this.attr("href"); 
+    $this.attr("href", _href + '?str='+Math.random().toString(36).replace('0.', ''));
+})*/
+history.pushState(null,'organization','');
 if(localStorage.getItem('status') == 'logged'){
   alert('Welcome back, ' + localStorage.getItem('username'));
   localStorage.removeItem('status');

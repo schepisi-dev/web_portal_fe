@@ -14720,3 +14720,6 @@ div.dataTables_wrapper div.dataTables_filter input {
 .nested .caret {
     padding: 0 0 0 15px;
 }
+.focused{
+  border: solid 1px red;
+  }
